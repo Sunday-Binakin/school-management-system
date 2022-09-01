@@ -24,13 +24,13 @@ class AdminController extends Controller
     {
         $id = Auth::user()->id;
         $adminData = User::find($id);
-        return view('admin.admin_profile', compact('adminData'));
+        return view('backend.profile.index', compact('adminData'));
     }
     public function EditProfile()
     {
         $id = Auth::user()->id;
         $editData = User::find($id);
-        return view('admin.admin_profile_edit', compact('editData'));
+        return view('backend.profile.edit', compact('editData'));
     }
 
     public function StoreProfile(Request $request) // stores profile picture into the db
@@ -60,13 +60,13 @@ class AdminController extends Controller
     //change password method
     public function ChangePassword()
     {
-        return view('admin.admin_change_password');
+        return view('backend.password.change');
     }
     //update password
     public function UpdatePassword(Request $request)
     {
         //validating the input fields
-        $validateData = $request->validate([
+        $request->validate([
             'old_password' => 'required',
             'new_password' => 'required|min:8|',
             'confirm_new_password' => 'required|min:8|same:new_password'

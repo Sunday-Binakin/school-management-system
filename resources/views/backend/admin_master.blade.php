@@ -21,12 +21,10 @@
         type="text/css') }}" />
 
     <!-- Responsive datatable examples -->
-    <link href="{{ asset('backend/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
-        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Bootstrap Css -->
-    <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
@@ -46,11 +44,13 @@
 
 
         {{-- header --}}
-        @include('admin.body.header')
+        @include('backend.body.header')
+
         {{-- end of header --}}
 
         <!-- ========== Left Sidebar Start ========== -->
-        @include('admin.body.sidebar')
+        @include('backend.body.sidebar')
+
         <!-- Left Sidebar End -->
 
 
@@ -64,7 +64,8 @@
             <!-- End Page-content -->
             {{-- footer --}}
 
-            @include('admin.body.footer')
+            @include('backend.body.footer')
+
             {{-- end of footer --}}
 
         </div>
@@ -94,8 +95,7 @@
     <!-- jquery.vectormap map -->
     <script src="{{ asset('backend/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}">
     </script>
-    <script
-        src="{{ asset('backend/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js') }}">
+    <script src="{{ asset('backend/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js') }}">
     </script>
 
     <!-- Required datatable js -->
@@ -113,22 +113,26 @@
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
 
-   <script>
+    <script>
         $(document).ready(function() {
             toastr.options.timeOut = 10000;
-            @if (Session::has('error'))
-            toastr.error('{{ Session::get('error') }}');
+            @if(Session::has('error'))
+            toastr.error('{{ Session::get('
+                error ') }}');
             @elseif(Session::has('success'))
-            toastr.success('{{ Session::get('success') }}');
-            @elseif (Session::has('info'))
-            toastr.info('{{ Session::get('info') }}');
-            @elseif (Session::has('warning'))
-            toastr.warning('{{ Session::get('warning') }}')
+            toastr.success('{{ Session::get('
+                success ') }}');
+            @elseif(Session::has('info'))
+            toastr.info('{{ Session::get('
+                info ') }}');
+            @elseif(Session::has('warning'))
+            toastr.warning('{{ Session::get('
+                warning ') }}')
             @endif
-            });
-
+        });
 
     </script>
 </body>
 
 </html>
+

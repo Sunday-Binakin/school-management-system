@@ -1,4 +1,5 @@
-@extends('admin.admin_master')
+@extends('backend.admin_master')
+
 @section('admin')
 <div class="page-content">
     <div class="container-fluid">
@@ -9,11 +10,9 @@
                     <center>
                         {{-- if there is no image upload into the db , it should put a thumbail image in the uploads
                         folder --}}
-                        <img class="rounded-circle avatar-xl"
-                        src="{{ (!empty($adminData->profile_picture))?
+                        <img class="rounded-circle avatar-xl" src="{{ (!empty($adminData->profile_picture))?
                             url('uploads/admin_profile_pictures/'.$adminData->profile_picture):
-                            url('uploads/no_image.jpg') }}"
-                            alt="Card image cap">
+                            url('uploads/no_image.jpg') }}" alt="Card image cap">
                     </center>
 
                     <div class="card-body">
@@ -24,8 +23,7 @@
                         <hr>
                         <h4 class="card-title">Email : {{ $adminData->email }}</h4>
                         <hr>
-                        <a href="{{ route('edit.profile') }}"
-                            class="btn btn-info btn-rounded waves-effect waves-light">Edit Profile</a>
+                        <a href="{{ route('edit.profile') }}" class="btn btn-info btn-rounded waves-effect waves-light">Edit Profile</a>
 
 
                     </div>
@@ -35,3 +33,4 @@
     </div>
 </div>
 @endsection
+
