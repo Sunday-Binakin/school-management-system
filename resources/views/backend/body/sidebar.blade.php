@@ -28,7 +28,7 @@
 
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a class="ri-user-line "> View Users</a></li>
+                        <li><a href="{{ route('user.index') }}" class="ri-user-line "> View Users</a></li>
 
 
                         <li><a href="email-read.html">Read Email</a></li>

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
+
 
 class AdminController extends Controller
 {
@@ -54,6 +58,10 @@ class AdminController extends Controller
         //     'message' => 'Admin Profile Updated Successfully',
         //     'alert-type' => 'Success'
         // );
+
+
+        // example:
+        // toast('Post Updated', 'success', 'top-right')->hideCloseButton();
 
         return redirect()->route('admin.profile')->with('info', 'Admin Profile Updated Successfully');
     }

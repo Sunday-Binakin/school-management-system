@@ -27,9 +27,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/change/password', 'ChangePassword')->name('change.password');
         Route::post('/update/password', 'UpdatePassword')->name('update.password');
     });
+
+    // Route::prefix('user')->group(function (){    
+    Route::get('/user/index', function () {
+            return view('backend.users.index');
+    })->name('user.index');
+// });
 });
 Route::get('/dashboard', function () {
-    return view('admin.index');
+    return view('backend.index');
 })->middleware(['auth','verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
