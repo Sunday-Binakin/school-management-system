@@ -34,7 +34,7 @@
                                 </p> --}}
 
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                    <a class="btn btn-rounded  btn-primary mb-7" style="float: right">Add User</a>
+                                    <a class="btn btn-rounded  btn-primary mb-7" style="float: right" href="{{ route('user.create') }}">Add User</a>
                                     <br>
                                     <br>
                                     <hr>
@@ -80,7 +80,7 @@
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
                                                         <td style="display: none;">{{ $users->user_type }}</td>
-                                                        <td style="display: none;">{{ $users->name }}</td>
+                                                        <td style="display: none;">{{ $users->username }}</td>
 
                                                         <td style="display: none;">{{ $users->email }}</td>
                                                         <td div class="btn-group">

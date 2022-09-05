@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\storeUserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -29,6 +30,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('backend.users.create');
     }
 
     /**
@@ -37,9 +39,20 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(storeUserRequest $request)
     {
-        //
+        // Retrieve the validated input data...
+        $request->validated();
+
+        $newUser = new User();
+        $newUser->username = $request->input('username');
+        $newUser->email = $request->input('email');
+        $newUser->user_type = $request->input('user_type');
+        $newUser->password = bcrypt($request->input('password'));
+        $newUser->save();
+
+        alert()->success('User Added')->persistent(true, false);
+        return redirect()->route('backend.users.index');
     }
 
     /**
