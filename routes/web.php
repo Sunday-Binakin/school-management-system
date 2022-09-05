@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,14 +29,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/password', 'UpdatePassword')->name('update.password');
     });
 
-    // Route::prefix('user')->group(function (){    
-    Route::get('/user/index', function () {
-            return view('backend.users.index');
-    })->name('user.index');
-// });
+    Route::prefix('user')->controller(UserController::class)->group(function () {
+        Route::get('/index', 'index')->name('user.index');
+    });
 });
 Route::get('/dashboard', function () {
     return view('backend.index');
-})->middleware(['auth','verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

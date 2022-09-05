@@ -38,13 +38,13 @@
 <body data-topbar="dark">
 
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
 
 
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        
+
 
 
 
@@ -69,13 +69,15 @@
             @yield('admin')
             <!-- End Page-content -->
             {{-- footer --}}
-
             @include('backend.body.footer')
 
             {{-- end of footer --}}
 
+
+
         </div>
         <!-- end main content-->
+
 
     </div>
     <!-- END layout-wrapper -->
