@@ -24,27 +24,38 @@
                         <h4 class="card-title">Add User</h4><br>
                         <hr>
                         <form method="post" action="{{ route('user.store') }}">
-                           @csrf
+                            @csrf
                             <div class="row">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">User Role</label>
-                                            <select class="form-select" required="" name="user_type">
-                                                <option selected="" disabled="" value="">Select Role</option>
+                                            <select class="form-select" name="user_type">
+                                                <option selected="" disabled="" value="">Select User Role</option>
                                                 <option value="Admin">Admin</option>
                                                 <option value="User">User</option>
                                             </select>
+                                            <br>
+                                            <span>
+                                                @error('user_type')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </span>
+
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">User Name</label>
-                                            <input type="text" class="form-control" name="username">
+                                            <input type="text" class="form-control" name="name">
                                         </div>
-                                        @error('username')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
+                                        <br>
+                                        <span>
+                                            @error('name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </span>
+
                                     </div>
 
 
@@ -54,35 +65,43 @@
                                         <div class="mb-3">
                                             <label class="form-label">User Email</label>
                                             <input type="email" class="form-control" name="email">
-                                            @error('email')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
+                                            <br>
+                                            <span>
+                                                @error('email')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </span>
+
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">User Password</label>
                                             <input type="password" class="form-control" name="password">
-                                            @error('password')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
+                                            <br>
+                                            <span>
+                                                @error('password')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </span>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div>
 
-                                <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
-                                    value="Submit" style="width: 120px">
-                            </div>
-                        </form>
+
+                            <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
+                                value="Submit" style="width: 120px">
                     </div>
+                    </form>
                 </div>
-                <!-- end card -->
-            </div> <!-- end col -->
+            </div>
+            <!-- end card -->
+        </div> <!-- end col -->
 
 
-        </div>
     </div>
+</div>
 </div>
 @endsection

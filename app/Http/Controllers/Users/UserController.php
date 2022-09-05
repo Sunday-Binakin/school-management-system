@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\storeUserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -44,15 +45,23 @@ class UserController extends Controller
         // Retrieve the validated input data...
         $request->validated();
 
-        $newUser = new User();
-        $newUser->username = $request->input('username');
-        $newUser->email = $request->input('email');
-        $newUser->user_type = $request->input('user_type');
-        $newUser->password = bcrypt($request->input('password'));
-        $newUser->save();
+        // user::create([
+        //     'name' => $request->input('name'),
+        //     'email' => $request->input('email'),
+        //     'user_type' => $request->input('user_type'),
+        //     'password' => bcrypt($request->input('password')),
+        // 'created_at' => Carbon::now(),
+        // ]);
+        
+        // $newUser = new User();
+        // $newUser->name = $request->input('name');
+        // $newUser->email = $request->input('email');
+        // $newUser->user_type = $request->input('user_type');
+        // $newUser->password = bcrypt($request->input('password'));
+        // $newUser->save();
 
         alert()->success('User Added')->persistent(true, false);
-        return redirect()->route('backend.users.index');
+        return redirect()->route('user.index');
     }
 
     /**

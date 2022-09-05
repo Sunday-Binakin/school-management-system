@@ -24,9 +24,26 @@ class storeUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|unique:users',
-            'email' => 'required|unique:users',
-            'password' => 'required'
+            'user_type'=>'required',
+            'name' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8'
+        ];
+    }
+
+    /**
+     * return  validation error messages
+     */
+    public function messages()
+    {
+        return [
+            'user_type.required'=>'Select a User type',
+            'name.required'=>'Please Enter Your Name',
+            'name.unique'=> 'The name you entered already exist',
+            'email.required'=>'Please Enter a valid Email',
+            'email.email'=>'Something is wrong with your email',
+            'password.required'=>'Please Enter Your Password',
+            'password.min'=>'Minimum password length is 8 characters'
         ];
     }
 }

@@ -34,7 +34,7 @@
                                 </p> --}}
 
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                    <a class="btn btn-rounded  btn-primary mb-7" style="float: right" href="{{ route('user.create') }}">Add User</a>
+                                    <a class="btn btn-primary btn-rounded waves-effect waves-light" style="float: right; width:120px" href="{{ route('user.create') }}">Add User</a>
                                     <br>
                                     <br>
                                     <hr>
@@ -80,12 +80,12 @@
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
                                                         <td style="display: none;">{{ $users->user_type }}</td>
-                                                        <td style="display: none;">{{ $users->username }}</td>
+                                                        <td style="display: none;">{{ $users->name }}</td>
 
                                                         <td style="display: none;">{{ $users->email }}</td>
                                                         <td div class="btn-group">
                                                             <button type="button" style="width: 100%"
-                                                                class="btn btn-primary dropdown-toggle ri-edit-2-line"
+                                                                class="btn btn-primary btn-rounded waves-effect waves-light dropdown-toggle ri-edit-2-line"
                                                                 data-bs-toggle="dropdown" aria-expanded="false"><i
                                                                     class="mdi mdi-chevron-down"></i></i></button>
                                                             <div class="dropdown-menu">
@@ -101,7 +101,7 @@
 
                                                 </tbody>
                                             </table>
-                                        </div </div>
+                                        </div>
 
                                     </div>
                                 </div>
