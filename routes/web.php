@@ -33,6 +33,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/index', 'index')->name('user.index');
         Route::get('/create', 'create')->name('user.create');
         Route::post('/store', 'store')->name('user.store');
+        Route::get('/edit/{id}', 'edit')->name('user.edit');
+        Route::post('/update/{id}', 'update')->name('user.update');
+        Route::get('/destroy/{id}', 'destroy')->name('user.destroy');
     });
 });
 Route::get('/dashboard', function () {

@@ -34,7 +34,8 @@
                                 </p> --}}
 
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                    <a class="btn btn-primary btn-rounded waves-effect waves-light" style="float: right; width:120px" href="{{ route('user.create') }}">Add User</a>
+                                    <a class="btn btn-primary btn-rounded waves-effect waves-light"
+                                        style="float: right; width:120px" href="{{ route('user.create') }}">Add User</a>
                                     <br>
                                     <br>
                                     <hr>
@@ -89,8 +90,9 @@
                                                                 data-bs-toggle="dropdown" aria-expanded="false"><i
                                                                     class="mdi mdi-chevron-down"></i></i></button>
                                                             <div class="dropdown-menu">
-                                                                <a class="dropdown-item">Edit</a>
-                                                                <a class="dropdown-item" title="Delete Data"
+                                                                <a href="{{ route('user.edit',$users->id) }}"
+                                                                    class="dropdown-item">Edit</a>
+                                                                <a href="{{ route('user.destroy',$users->id) }}" class="dropdown-item" title="Delete Data"
                                                                     id="delete">Delete</a>
                                                             </div>
                                                         </td>
