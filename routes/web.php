@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('user.edit');
         Route::post('/update/{id}', 'update')->name('user.update');
         Route::get('/destroy/{id}', 'destroy')->name('user.destroy');
+    });
+
+    Route::prefix('manage/profile')->controller(ProfileController::class)->group(function () {
+        Route::get('/index', 'index')->name('manage.profile.index');
+      
     });
 });
 Route::get('/dashboard', function () {

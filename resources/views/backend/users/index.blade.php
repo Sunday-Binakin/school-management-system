@@ -92,9 +92,11 @@
                                                             <div class="dropdown-menu">
                                                                 <a href="{{ route('user.edit',$users->id) }}"
                                                                     class="dropdown-item">Edit</a>
-                                                                <a href="{{ route('user.destroy',$users->id) }}" class="dropdown-item" title="Delete Data"
+                                                                <a href="{{ route('user.destroy',$users->id) }}"
+                                                                    class="dropdown-item" title="Delete Data"
                                                                     id="delete">Delete</a>
                                                             </div>
+
                                                         </td>
                                                     </tr>
 
