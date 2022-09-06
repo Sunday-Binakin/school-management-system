@@ -18,7 +18,7 @@ class ProfileController extends Controller
     {
         $id = Auth::user()->id;
         $user = User::FindOrFail($id);
-        return view('backend.manage_profile.index',compact('user'));
+        return view('backend.manage_profile.index', compact('user'));
     }
 
     /**
@@ -59,9 +59,13 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        // $id = Auth::user()->id;
+        // $editData = User::FindOrFail($id);
+
+        return view('backend.manage_profile.edit');
+        // , compact('editData'));
     }
 
     /**

@@ -26,10 +26,10 @@
                         <div class="user-avatar-section">
                             <div class="d-flex align-items-center flex-column">
                                 <img class="img-fluid rounded-circle my-4"
-                                    src="{{ asset('backend/assets/images/users/avatar-2.jpg') }}" height="110"
+                                    src="{{ (!empty($user->image))? url('uploads/user_images/'.$user->image):url('uploads/no_image.jpg')}}" height="110"
                                     width="110" alt="User avatar">
                                 <div class="user-info text-center">
-                                    <h5 class="mb-2">Violet Mendoza</h5>
+                                    <h5 class="mb-2">{{ $user->name }}</h5>
                                     <span class="badge bg-label-secondary">Author</span>
                                 </div>
                             </div>
@@ -108,8 +108,9 @@
                         </div>
 
                         <div class="d-flex justify-content-center pt-3">
-                            <a href="javascript:;" class="btn btn-primary btn-rounded waves-effect waves-light me-3"
-                                data-bs-target="#editUser" data-bs-toggle="modal">Edit Profile</a>
+                            <a href="{{ route('manage.profile.edit') }}" class="btn btn-primary btn-rounded waves-effect waves-light me-3"
+                               >Edit Profile</a>
+                               {{-- data-bs-target="#editUser" data-bs-toggle="modal" --}}
                             <a href="javascript:;" class="btn btn-label-danger suspend-user">Suspended</a>
                         </div>
                     </div>
