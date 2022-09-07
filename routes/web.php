@@ -43,6 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('manage/profile')->controller(ProfileController::class)->group(function () {
         Route::get('/index', 'index')->name('manage.profile.index');
         Route::get('/edit', 'edit')->name('manage.profile.edit');
+        Route::post('/update', 'update')->name('manage.profile.update');
+
       
     });
 });

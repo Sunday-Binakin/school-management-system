@@ -112,3 +112,76 @@ div class="btn-group">
 
 </div>
 @endsection
+
+
+
+@extends('backend.admin_master')
+@section('admin')
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <form id="editUserForm" class="row g-3 " action="{{ route('manage.profile.store') }}"
+                            method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="col-12 col-md-6 ">
+                                <label class="form-label">User Name</label>
+                                <input type="text" name="name" value="{{ $editData->name }}" class="form-control">
+                            </div>
+                            <div class="col-12 col-md-6 ">
+                                <label class="form-label">User Email</label>
+                                <input type="text" id="email" name="email" value="{{ $editData->email }}"
+                                    class="form-control">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">User Mobile</label>
+                                <input type="text" id="mobile" name="mobile" value="{{ $editData->mobile }}"
+                                    class="form-control">
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">User Gender</label>
+                                <select id="gender" name="gender" class="form-select"
+                                    aria-label="Default select example">
+                                    <option selected="">Gender</option>
+                                    <option value="Male" {{ ($editData->gender =="Male"?"selected":"") }}>Male</option>
+                                    <option value="Female" {{ ($editData->gender =="female"?"selected":"") }}>Female
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label"> Address</label>
+                                <input type="text" id="address" name="address" value="{{ $editData->address }}"
+                                    class="form-control ">
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label">Profile Image</label>
+                                <div class="input-group input-group-merge">
+
+                                    <input type="file" id="image" name="image" class="form-control ">
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <div class="input-group input-group-merge">
+                                    <img src="{{(!empty($editData->image))? url('uploads/user_images/'.$editData->image):url('uploads/no_image.jpg') }}"
+                                        width="100px" id="showImage">
+                                </div>
+                            </div>
+                            <br>
+                        </form>
+                        <div class="col-12  mt-4">
+                            <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
+                                value="Update" style="width: 120px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+@endsection

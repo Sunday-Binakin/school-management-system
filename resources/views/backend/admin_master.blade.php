@@ -34,7 +34,8 @@
         {{-- toast --}}
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
+        <!--jquery cdn-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 
     <body data-topbar="dark">
@@ -169,6 +170,19 @@
             
             });
             });
+        </script>
+
+        <!--display image on upload-->
+        <script type="text/javascript">
+            $(document).ready(function(){
+    $('#image').change(function(e){
+        var reader = new FileReader();
+        reader.onload = function(e){
+            $('#showImage').attr('src',e.target.result);
+        }
+        reader.readAsDataURL(e.target.files['0']);
+    });
+});
         </script>
 
         <!-- App js -->
