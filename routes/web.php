@@ -45,15 +45,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/index', 'index')->name('manage.profile.index');
         Route::get('/edit', 'edit')->name('manage.profile.edit');
         Route::post('/update', 'update')->name('manage.profile.update');
-
-      
     });
 
 
     Route::prefix('setup/student/class')->controller(StudentClassController::class)->group(function () {
         Route::get('/index', 'index')->name('setup.student.class.index');
-        Route::get('/create', 'create')->name('setup.student.class.create');
-        
+        Route::post('/store', 'store')->name('setup.student.class.store');
+        Route::get('/edit/{id}', 'edit')->name('setup.student.class.edit');
+        Route::get('/destroy', 'destroy')->name('setup.student.class.destroy');
     });
 });
 Route::get('/dashboard', function () {

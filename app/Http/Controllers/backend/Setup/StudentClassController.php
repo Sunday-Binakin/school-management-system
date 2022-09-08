@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\backend\Setup;
 
-use App\Http\Controllers\Controller;
-use App\Models\Setup\StudentClass;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\Setup\StudentClass;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\storeStudentClassRequest;
 
 class StudentClassController extends Controller
 {
@@ -17,7 +19,8 @@ class StudentClassController extends Controller
     {
         //
         $all_classes = StudentClass::all();
-        return view('backend.setup.student.index',compact('all_classes'));
+        // $edit_student_class = StudentClass::FindOrFail($id);
+        return view('backend.setup.student.index', compact('all_classes'));
     }
 
     /**
@@ -28,7 +31,7 @@ class StudentClassController extends Controller
     public function create()
     {
         //
-        return view('backend.setup.student.create');
+        // return view('backend.setup.student.create');
     }
 
     /**
@@ -37,9 +40,16 @@ class StudentClassController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(storeStudentClassRequest $request)
     {
-        //
+        // Retrieve the validated input data...
+        $request->validated();
+        StudentClass::create([
+            'name'=>$request->input('name'),
+            'created_at' => Carbon::now(),
+        ]);
+        alert()->success('Student Class Added')->persistent(true, false);
+        return redirect()->route('setup.student.class.index');
     }
 
     /**
@@ -62,6 +72,8 @@ class StudentClassController extends Controller
     public function edit($id)
     {
         //
+        $edit_student_class = StudentClass::FindOrFail($id);
+        return  view('backend.setup.student.modal.edit',compact('edit_student_class'));
     }
 
     /**
