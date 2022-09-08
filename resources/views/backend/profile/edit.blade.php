@@ -34,14 +34,14 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Profile Picture</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="image" name="profile_picture" type="file">
+                                    <input class="form-control" id="image" name="image" type="file">
                                 </div>
                             </div> <!-- end row -->
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img id="showImage" class="rounded avatar-lg" src="{{ (!empty($editData->profile_picture))?
-                                            url('uploads/admin_profile_pictures/'.$editData->profile_picture):
+                                    <img id="showImage" class="rounded avatar-lg" src="{{ (!empty($editData->image))?
+                                            url('uploads/admin_profile_pictures/'.$editData->image):
                                             url('uploads/no_image.jpg') }}" alt="Card image cap">
                                 </div>
                             </div> <!-- end row -->

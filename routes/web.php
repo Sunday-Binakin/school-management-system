@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\ProfileController;
+use App\Http\Controllers\backend\Setup\StudentClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/update', 'update')->name('manage.profile.update');
 
       
+    });
+
+
+    Route::prefix('setup/student/class')->controller(StudentClassController::class)->group(function () {
+        Route::get('/index', 'index')->name('setup.student.class.index');
+        Route::get('/create', 'create')->name('setup.student.class.create');
+        
     });
 });
 Route::get('/dashboard', function () {
