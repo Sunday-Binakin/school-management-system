@@ -1,6 +1,6 @@
 <!-- Edit Modal -->
-
-<div class="modal fade" id="editStudenClassModal{{ $class->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editStudenClassModal{{ $class->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,16 +9,14 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="{{ route('setup.student.class.store') }}">
+                <form method="post" action="{{ route('setup.student.class.update',$class->id) }}">
                     @csrf
                     <div class="row">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Student Class</label>
-                                    <input type="text" class="form-control" name="name"
-                                        value="{{ $class->name }}"
-                                        >
+                                    <input type="text" class="form-control" name="name" value="{{ $class->name }}">
                                 </div>
                             </div>
                         </div>
@@ -27,10 +25,6 @@
                     </div>
                 </form>
             </div>
-            {{-- <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div> --}}
         </div>
     </div>
 </div>

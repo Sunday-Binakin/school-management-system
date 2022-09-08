@@ -27,4 +27,11 @@ class storeStudentClassRequest extends FormRequest
             'name'=>'required|unique:student_classes,name'
         ];
     }
+       public function messages()
+    {
+        return [
+            'name.required' => 'Please Add a new class',
+            'name.unique' => 'Class Already Exist',
+        ];
+    }
 }

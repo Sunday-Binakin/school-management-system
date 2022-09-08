@@ -72,8 +72,8 @@ class StudentClassController extends Controller
     public function edit($id)
     {
         //
-        $edit_student_class = StudentClass::FindOrFail($id);
-        return  view('backend.setup.student.modal.edit',compact('edit_student_class'));
+        // $edit_student_class = StudentClass::FindOrFail($id);
+        // return  view('backend.setup.student.modal.edit',compact('edit_student_class'));
     }
 
     /**
@@ -83,9 +83,16 @@ class StudentClassController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(storeStudentClassRequest $request, $id)
     {
-        //
+        // Retrieve the validated input data...
+        $request->validated();
+        StudentClass::FindOrFail($id)->update([
+            'name'=>$request->input('name'),
+            'updated_at' => Carbon::now(),
+        ]);
+        toast('Student Class Updated', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('setup.student.class.index');
     }
 
     /**

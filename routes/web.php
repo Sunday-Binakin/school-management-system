@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('setup/student/class')->controller(StudentClassController::class)->group(function () {
         Route::get('/index', 'index')->name('setup.student.class.index');
         Route::post('/store', 'store')->name('setup.student.class.store');
-        Route::get('/edit/{id}', 'edit')->name('setup.student.class.edit');
+        Route::post('/update/{id}', 'update')->name('setup.student.class.update');
         Route::get('/destroy', 'destroy')->name('setup.student.class.destroy');
     });
 });
