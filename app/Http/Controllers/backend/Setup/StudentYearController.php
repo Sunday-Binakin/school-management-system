@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\backend\setup;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StudentYearRequest;
+use App\Models\setup\StudentYear;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class StudentYearController extends Controller
@@ -14,7 +17,8 @@ class StudentYearController extends Controller
      */
     public function index()
     {
-        //
+        $all_year = StudentYear::all();
+        return view('backend.setup.student.year.index',compact('all_year'));
     }
 
     /**
@@ -33,9 +37,16 @@ class StudentYearController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentYearRequest $request)
     {
-        //
+        // Retrieve the validated input data...
+        $request->validated();
+        StudentYear::create([
+            'name'=>$request->input('name'),
+            'created_at'=>Carbon::now(),
+        ]);
+        alert()->success('Student Year Added')->persistent(true, false);
+        return redirect()->route('setup.student.year.index');
     }
 
     /**
@@ -67,9 +78,16 @@ class StudentYearController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StudentYearRequest $request, $id)
     {
-        //
+        // Retrieve the validated input data...
+        $request->validated();
+        StudentYear::FindOrFail($id)->update([
+            'name' => $request->input('name'),
+            'updated_at' => Carbon::now(),
+        ]);
+        toast('Student Year Updated', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('setup.student.year.index');
     }
 
     /**
@@ -81,5 +99,7 @@ class StudentYearController extends Controller
     public function destroy($id)
     {
         //
+        StudentYear::FindOrFail($id)->delete();
+        return redirect()->route('setup.student.year.index');
     }
 }

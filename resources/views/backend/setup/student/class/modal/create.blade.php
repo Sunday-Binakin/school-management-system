@@ -33,12 +33,12 @@
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
+            {{-- <div class="modal-footer"> --}}
                 {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
                 {{-- <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit" value="Add Class"
                     style="width: 120px">  --}}
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 </div>

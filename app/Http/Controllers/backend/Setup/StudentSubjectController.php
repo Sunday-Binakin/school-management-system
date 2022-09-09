@@ -82,7 +82,7 @@ class StudentSubjectController extends Controller
     public function update(StudentSubjectRequest $request, $id)
     {
         //
-        $request->validate();
+        $request->validated();
         StudentSubject::FindOrFail($id)->update([
             'name'=>$request->input('name'),
             'updated_at'=>Carbon::now(),
@@ -100,5 +100,8 @@ class StudentSubjectController extends Controller
     public function destroy($id)
     {
         //
+        StudentSubject::FindOrFail($id)->delete();
+        return redirect()->route('setup.student.subject.index');
+
     }
 }

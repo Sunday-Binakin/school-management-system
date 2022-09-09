@@ -79,7 +79,7 @@
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
                                                         <td style="display: none;">{{ $subject->name }}</td>
-                                                        <td style="display: none;">{{ $subject->created_at->diffForHumans() }}</td>
+                                                        <td style="display: none;">{{ $subject->updated_at->diffForHumans() }}</td>
                                                         <td>
                                                             <div class="btn-group me-2 mb-2 mb-sm-0">
                                                                 <a href="#" data-bs-toggle="modal"
