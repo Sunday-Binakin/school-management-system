@@ -5,7 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\ProfileController;
+;
+use App\Http\Controllers\backend\setup\StudentYearController;
 use App\Http\Controllers\backend\Setup\StudentClassController;
+use App\Http\Controllers\backend\setup\StudentSubjectController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +57,18 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', 'store')->name('setup.student.class.store');
         Route::post('/update/{id}', 'update')->name('setup.student.class.update');
         Route::get('/destroy{id}', 'destroy')->name('setup.student.class.destroy');
+    });
+    Route::prefix('setup/student/year')->controller(StudentYearController::class)->group(function () {
+        Route::get('/index', 'index')->name('setup.student.year.index');
+        Route::post('/store', 'store')->name('setup.student.year.store');
+        Route::post('/update/{id}', 'update')->name('setup.student.year.update');
+        Route::get('/destroy{id}', 'destroy')->name('setup.student.year.destroy');
+    });
+    Route::prefix('setup/student/subject')->controller(StudentSubjectController::class)->group(function () {
+        Route::get('/index', 'index')->name('setup.student.subject.index');
+        Route::post('/store', 'store')->name('setup.student.subject.store');
+        Route::post('/update/{id}', 'update')->name('setup.student.subject.update');
+        Route::get('/destroy{id}', 'destroy')->name('setup.student.subject.destroy');
     });
 });
 Route::get('/dashboard', function () {

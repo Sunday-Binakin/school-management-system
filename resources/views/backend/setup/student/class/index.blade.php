@@ -91,7 +91,7 @@
 
                                                         </td>
                                                         <!-- Edit Modal -->
-                                                        @include('backend.setup.student.modal.edit')
+                                                        @include('backend.setup.student.class.modal.edit')
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -108,7 +108,7 @@
     </div>
 
     <!-- Add Modal -->
-    @include('backend.setup.student.modal.create')
+    @include('backend.setup.student.class.modal.create')
 
 
     @endsection

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\setup;
+namespace App\Http\Controllers\backend\setup;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class StudentSubjectController extends Controller
+class StudentYearController extends Controller
 {
     /**
      * Display a listing of the resource.
