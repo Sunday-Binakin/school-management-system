@@ -82,11 +82,11 @@
                                                                     style="width: 70px" ><i
                                                                         class="ri-edit-box-line"></i></a>
 
-                                                                <a {{--
+                                                                <a 
                                                                     href="{{ route('setup.student.class.destroy',$class->id) }}"
-                                                                    --}} class="btn btn-danger waves-light waves-effect"
+                                                                    class="btn btn-danger waves-light waves-effect" id="delete"
                                                                     style="width: 70px"><i
-                                                                        class="far fa-trash-alt"></i></a>
+                                                                        class="far fa-trash-alt" type="button" ></i></a>
                                                             </div>
 
                                                         </td>

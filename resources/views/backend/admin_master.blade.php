@@ -168,14 +168,11 @@
             window.location.href = link
             Swal.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Deleted Successfully.',
             'success'
             )
             }
-            })
-
-
-            
+            })  
             });
             });
         </script>

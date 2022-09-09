@@ -103,6 +103,8 @@ class StudentClassController extends Controller
      */
     public function destroy($id)
     {
-        //
+        StudentClass::FindOrFail($id)->delete();
+        
+        return redirect()->route('setup.student.class.index');
     }
 }

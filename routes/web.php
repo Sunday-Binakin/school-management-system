@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/index', 'index')->name('setup.student.class.index');
         Route::post('/store', 'store')->name('setup.student.class.store');
         Route::post('/update/{id}', 'update')->name('setup.student.class.update');
-        Route::get('/destroy', 'destroy')->name('setup.student.class.destroy');
+        Route::get('/destroy{id}', 'destroy')->name('setup.student.class.destroy');
     });
 });
 Route::get('/dashboard', function () {
