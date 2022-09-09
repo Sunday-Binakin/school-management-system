@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\backend\setup;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\setup\StudentSubject;
+use App\Http\Requests\StudentSubjectRequest;
 
 class StudentSubjectController extends Controller
 {
@@ -14,7 +17,8 @@ class StudentSubjectController extends Controller
      */
     public function index()
     {
-        //
+        $all_subjects = StudentSubject::all();
+        return view('backend.setup.student.subject.index',compact('all_subjects'));
     }
 
     /**
@@ -33,9 +37,17 @@ class StudentSubjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentSubjectRequest $request)
     {
-        //
+        // Retrieve the validated input data...
+        $request->validated();
+
+        StudentSubject::create([
+            'name'=>$request->input('name'),
+            'created_at' => Carbon::now(),
+        ]);
+        alert()->success('Student Subject Added')->persistent(true, false);
+        return redirect()->route('setup.student.subject.index');
     }
 
     /**
@@ -67,9 +79,16 @@ class StudentSubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StudentSubjectRequest $request, $id)
     {
         //
+        $request->validate();
+        StudentSubject::FindOrFail($id)->update([
+            'name'=>$request->input('name'),
+            'updated_at'=>Carbon::now(),
+        ]);
+        toast('Student Subject Updated', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('setup.student.subject.index');
     }
 
     /**

@@ -42,9 +42,6 @@
 
                     </ul>
                 </li>
-              
-                
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-settings-5-line"></i>
@@ -52,15 +49,15 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.class.index') }}">Student Class</a></li>
-                
+
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.year.index') }}">Student Year</a></li>
-                    
+
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.subject.index') }}">Student Subject</a></li>
-                    
+
                     </ul>
                 </li>
 
