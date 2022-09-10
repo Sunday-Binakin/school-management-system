@@ -1,5 +1,5 @@
 <!-- Add Modal -->
-<div class="modal fade" id="addStudentShiftModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addStudentFeesCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,13 +8,13 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="{{ route('setup.student.shift.store') }}">
+                <form method="post" action="{{ route('setup.student.fees.category.store') }}">
                     @csrf
                     <div class="row">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label class="form-label">Student Shift</label>
+                                    <label class="form-label">Student Fees Category</label>
                                     <input type="text" class="form-control" name="name">
                                 </div>
 
@@ -28,7 +28,7 @@
                         <br>
                         <div class="mb-3">
                             <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
-                                value="Add Shift" style="width: 120px">
+                                value="Add Fees Category" style="width: 120px">
                         </div>
                     </div>
                 </form>
@@ -41,7 +41,7 @@
 @if (count($errors) > 0)
 <script type="text/javascript">
     $( document ).ready(function() {
-             $('#addStudentShiftModal').modal('show');
+             $('#addStudentFeesCategoryModal').modal('show');
         });
 </script>
 @endif

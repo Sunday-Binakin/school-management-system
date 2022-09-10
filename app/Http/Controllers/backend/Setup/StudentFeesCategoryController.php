@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\backend\setup;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StudentFeesCategoryRequest;
+use App\Models\setup\StudentFeesCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class StudentFeesCategoryController extends Controller
@@ -14,7 +17,8 @@ class StudentFeesCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $all_fees_categories = StudentFeesCategory::all();
+        return view('backend.setup.student.fees.index', compact('all_fees_categories'));
     }
 
     /**
@@ -33,9 +37,16 @@ class StudentFeesCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentFeesCategoryRequest $request)
     {
         //
+        $request->validated();
+        StudentFeesCategory::create([
+            'name' => $request->input('name'),
+            'created_at' => Carbon::now(),
+        ]);
+        alert()->success('Student Fees Category Added')->persistent(true, false);
+        return view('backend.setup.student.fees.index');
     }
 
     /**
@@ -67,9 +78,16 @@ class StudentFeesCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StudentFeesCategoryRequest $request, $id)
     {
         //
+        $request->validates();
+        StudentFeesCategory::FindOrFail($id)->update([
+            'name' => $request->input('name'),
+            'updated_at' => Carbon::now(),
+        ]);
+        toast('Student Fees Category Updated', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('setup.student.fees.category.index');
     }
 
     /**
@@ -81,5 +99,7 @@ class StudentFeesCategoryController extends Controller
     public function destroy($id)
     {
         //
+        StudentFeesCategory::FindOrFail($id)->delete();
+        return redirect()->route('setup.student.fees.category.index');
     }
 }

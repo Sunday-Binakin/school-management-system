@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\backend\setup;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StudentShiftRequest;
+use App\Models\setup\StudentShift;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class StudentShiftController extends Controller
@@ -14,7 +17,9 @@ class StudentShiftController extends Controller
      */
     public function index()
     {
-        //
+        //calling all shifts
+        $all_shifts = StudentShift::all();
+        return view('backend.setup.student.shift.index',compact('all_shifts'));
     }
 
     /**
@@ -33,9 +38,17 @@ class StudentShiftController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentShiftRequest $request)
     {
-        //
+        //validating form requests
+        $request->validated();
+
+        StudentShift::create([
+            'name'=>$request->input('name'),
+            'created_at'=>Carbon::now(),
+        ]);
+        alert()->success('Student Shift Added')->persistent(true, false);
+        return redirect()->route('setup.student.shift.index');
     }
 
     /**
@@ -67,9 +80,16 @@ class StudentShiftController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StudentShiftRequest $request, $id)
     {
         //
+        $request->validated();
+        StudentShift::FindOrFail($id)->update([
+            'name'=>$request->input('name'),
+            'updated_at'=>Carbon::now(),
+        ]);
+        toast('Student Shift Updated', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('setup.student.shift.index');
     }
 
     /**
@@ -81,5 +101,7 @@ class StudentShiftController extends Controller
     public function destroy($id)
     {
         //
+        StudentShift::FindOrFail($id)->delete();
+        return redirect()->route('setup.student.shift.index');
     }
 }

@@ -10,7 +10,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Setup</a></li>
-                            <li class="breadcrumb-item active">Student Shift </li>
+                            <li class="breadcrumb-item active">Student Fees Category </li>
                         </ol>
                     </div>
 
@@ -36,7 +36,7 @@
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                     <a class="btn btn-primary btn-rounded waves-effect waves-light"
                                         style="float: right; width:160px" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#addStudentShiftModal">Add Student Shift</a>
+                                        data-bs-target="#addStudentFeesCategoryModal">Add Student Fees Category</a>
                                     <br>
                                     <br>
                                     <hr>
@@ -75,21 +75,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($all_shifts as $key=>$shift )
+                                                    @foreach ($all_fees_categories as $key=>$fees )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
-                                                        <td style="display: none;">{{ $shift->name }}</td>
+                                                        <td style="display: none;">{{ $fees->name }}</td>
                                                         <td style="display: none;">
-                                                            {{ $shift->updated_at->diffForHumans() }}</td>
+                                                            {{ $fees->updated_at->diffForHumans() }}
+                                                        </td>
                                                         <td>
                                                             <div class="btn-group me-2 mb-2 mb-sm-0">
                                                                 <a href="#" data-bs-toggle="modal"
-                                                                    data-bs-target="#editStudentShiftModal{{ $shift->id }}"
+                                                                    data-bs-target="#editStudentFeesCategoryModal{{ $fees->id }}"
                                                                     class="btn btn-primary waves-light waves-effect"
                                                                     style="width: 70px"><i
                                                                         class="ri-edit-box-line"></i></a>
 
-                                                                <a href="{{ route('setup.student.shift.destroy',$shift->id) }}"
+                                                                <a href="{{ route('setup.student.fees.category.destroy',$fees->id) }}"
                                                                     class="btn btn-danger waves-light waves-effect"
                                                                     id="delete" style="width: 70px"><i
                                                                         class="far fa-trash-alt" type="button"></i></a>
@@ -97,7 +98,7 @@
 
                                                         </td>
                                                         <!-- Edit Modal -->
-                                                        @include('backend.setup.student.shift.modal.edit')
+                                                        @include('backend.setup.student.fees.modal.edit')
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -114,7 +115,7 @@
     </div>
 
     <!-- Add Modal -->
-    @include('backend.setup.student.shift.modal.create')
+    @include('backend.setup.student.fees.modal.create')
 
 
     @endsection
