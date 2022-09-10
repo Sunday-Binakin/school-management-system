@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
-                            value="Update Fees Category" style="width: 120px">
+                            value="Update Fees Category" style="width: 170px">
                     </div>
                 </form>
             </div>

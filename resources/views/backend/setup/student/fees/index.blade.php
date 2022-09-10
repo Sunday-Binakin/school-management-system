@@ -27,7 +27,7 @@
                             <div class="card-body">
                                 {{-- <hr> --}}
 
-                                <h4 class="card-title">Student Shift </h4>
+                                <h4 class="card-title">Student Fees Category </h4>
                                 {{-- <p class="card-title-desc">DataTables has most features enabled by
                                     default, so all you need to do to use it with your own tables is to call
                                     the construction function: <code>$().DataTable();</code>.
@@ -35,7 +35,7 @@
 
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                     <a class="btn btn-primary btn-rounded waves-effect waves-light"
-                                        style="float: right; width:160px" href="#" data-bs-toggle="modal"
+                                        style="float: right; width:210px" href="#" data-bs-toggle="modal"
                                         data-bs-target="#addStudentFeesCategoryModal">Add Student Fees Category</a>
                                     <br>
                                     <br>
@@ -57,12 +57,12 @@
 
                                                         <th class="sorting" tabindex="0" aria-controls="datatable"
                                                             rowspan="1" colspan="1" style="width: 20%; display: none;"
-                                                            aria-label="Name: activate to sort column ascending">
+                                                            aria-label="Category: activate to sort column ascending">
 
-                                                            Name</th>
+                                                            Category</th>
                                                         <th class="sorting" tabindex="0" aria-controls="datatable"
                                                             rowspan="1" colspan="1" style="width: 20%; display: none;"
-                                                            aria-label="Name: activate to sort column ascending">
+                                                            aria-label="Created: activate to sort column ascending">
 
                                                             Date Created</th>
 
@@ -75,7 +75,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($all_fees_categories as $key=>$fees )
+                                                    @foreach ($all_fees_category as $key=>$fees )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
                                                         <td style="display: none;">{{ $fees->name }}</td>

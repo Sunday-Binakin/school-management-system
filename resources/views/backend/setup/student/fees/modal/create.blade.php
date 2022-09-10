@@ -28,7 +28,7 @@
                         <br>
                         <div class="mb-3">
                             <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
-                                value="Add Fees Category" style="width: 120px">
+                                value="Add Fees Category" style="width: 150px">
                         </div>
                     </div>
                 </form>

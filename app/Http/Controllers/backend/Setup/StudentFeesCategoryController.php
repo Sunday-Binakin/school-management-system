@@ -17,8 +17,8 @@ class StudentFeesCategoryController extends Controller
      */
     public function index()
     {
-        $all_fees_categories = StudentFeesCategory::all();
-        return view('backend.setup.student.fees.index', compact('all_fees_categories'));
+        $all_fees_category = StudentFeesCategory::all();
+        return view('backend.setup.student.fees.index', compact('all_fees_category'));
     }
 
     /**
