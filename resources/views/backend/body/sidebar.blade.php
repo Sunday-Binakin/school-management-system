@@ -59,6 +59,14 @@
                         <li><a href="{{ route('setup.student.subject.index') }}">Student Subject</a></li>
 
                     </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('setup.student.shift.index') }}">Student Shift</a></li>
+                    
+                    </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('setup.student.fees.category.index') }}">Student Fees Category</a></li>
+                    
+                    </ul>
                 </li>
 
 
