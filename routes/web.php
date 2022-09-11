@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\setup\StudentYearController;
 use App\Http\Controllers\backend\Setup\StudentClassController;
 use App\Http\Controllers\backend\setup\StudentShiftController;
 use App\Http\Controllers\backend\setup\StudentSubjectController;
+use App\Http\Controllers\backend\setup\FeesCategoryAmountController;
 use App\Http\Controllers\backend\setup\StudentFeesCategoryController;
 
 
@@ -84,6 +85,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', 'store')->name('setup.student.fees.category.store');
         Route::post('/update/{id}', 'update')->name('setup.student.fees.category.update');
         Route::get('/destroy{id}', 'destroy')->name('setup.student.fees.category.destroy');
+    });
+    Route::prefix('setup/student/fees/category/amount')->controller(FeesCategoryAmountController::class)->group(function () {
+        Route::get('/index', 'index')->name('setup.student.fees.category.amount.index');
+        Route::post('/store', 'store')->name('setup.student.fees.category.amount.store');
+        Route::post('/update/{id}', 'update')->name('setup.student.fees.category.amount.update');
+        Route::get('/destroy{id}', 'destroy')->name('setup.student.fees.category.amount.destroy');
     });
 });
 Route::get('/dashboard', function () {
