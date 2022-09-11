@@ -36,7 +36,7 @@
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                     <a class="btn btn-primary btn-rounded waves-effect waves-light"
                                         style="float: right; width:210px" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#addStudentFeesCategoryAmountModal">Add Student Fees Category Amount</a>
+                                        data-bs-target="#addStudentFeesCategoryAmountModal">Add  Fees Category Amount</a>
                                     <br>
                                     <br>
                                     <hr>
@@ -75,7 +75,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($all_fees_amount as $key=>$amount )
+                                                    {{-- @foreach ($all_fees_amount as $key=>$amount )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
                                                         <td style="display: none;">{{ $amount->name }}</td>
@@ -96,11 +96,11 @@
                                                                         class="far fa-trash-alt" type="button"></i></a>
                                                             </div>
 
-                                                        </td>
+                                                        </td> --}}
                                                         <!-- Edit Modal -->
-                                                        @include('backend.setup.student.category.amount.modal.edit')
+                                                        {{-- @include('backend.setup.student.category.amount.modal.edit')
                                                     </tr>
-                                                    @endforeach
+                                                    @endforeach --}}
                                                 </tbody>
                                             </table>
                                         </div>

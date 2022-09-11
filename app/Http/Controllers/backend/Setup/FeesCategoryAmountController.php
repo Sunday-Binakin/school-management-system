@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend\setup;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setup\StudentClass;
+use App\Models\setup\StudentFeesCategory;
 use Illuminate\Http\Request;
 
 class FeesCategoryAmountController extends Controller
@@ -14,7 +16,9 @@ class FeesCategoryAmountController extends Controller
      */
     public function index()
     {
-        //
+        $all_categories = StudentFeesCategory::all();
+        $all_classes = StudentClass::all();
+        return view('backend.setup.student.category.amount.index',compact('all_categories','all_classes'));
     }
 
     /**
