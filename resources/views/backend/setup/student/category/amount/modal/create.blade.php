@@ -29,13 +29,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            {{-- <div style="visibility: hidden">
-                                <div class="whole_extra_item_add" id="whole_extra_item_add">
-                                    <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add"> --}}
-
-
-
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="mb-3">
@@ -48,10 +41,7 @@
                                             @endforeach
                                         </select>
                                         <br>
-
-
                                     </div>
-
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
@@ -61,100 +51,107 @@
                                 </div>
                                 <div class="col-md-1" style="padding: 25px;">
                                     <div class="mb-3">
-                                        <span class="btn btn-success addeventmore"><i
+                                        <span class="btn btn-success" id="addfields"><i
                                                 class="fa fa-plus-circle"></i></span><br>
                                         {{-- <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i></span> --}}
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-1" style="padding: 25px;">
-                                    <div class="mb-3">
-                                        {{-- <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span><br> --}}
-                                {{-- <span class="btn btn-danger removeeventmore"><i
-                                                class="fa fa-minus-circle"></i></span>
-                                    </div>
-                                </div> --}}
                             </div>
+                            <!--hidden input-->
+                            <div id="showfields" style="display: none;">
+                                <div class="whole_extra_item_add" id="whole_extra_item_add">
+                                    <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Student Class</label>
+                                                    <select class="form-select" name="class_id[]">
+                                                        <option selected="" disabled="" value="">Select Student Class
+                                                        </option>
+                                                        @foreach ($all_classes as $class)
+                                                        <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Amount</label>
+                                                    <input type="text" class="form-control" name="amount[]">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1" style="padding: 25px;">
+                                                <div class="mb-3">
+                                                    <span class="btn btn-success " id="addfields"><i
+                                                            class="fa fa-plus-circle"></i></span><br>
+                                                    {{-- <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i></span> --}}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1" style="padding: 25px;">
+                                                <div class="mb-3">
+                                                    {{-- <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span><br> --}}
+                                                    <span class="btn btn-danger" id="removefields"><i
+                                                            class="fa fa-minus-circle"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end of hidden input-->
                         </div>
                         <br>
+
                         <div class="mb-3">
                             <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
                                 value="Submit" style="width: 150px">
                         </div>
                     </div>
                 </form>
-                {{-- <div style="visibility: hidden">
-                    <div class="whole_extra_item_add" id="whole_extra_item_add">
-                        <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
 
-
-
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="mb-3">
-                                        <label class="form-label">Student Class</label>
-                                        <select class="form-select" name="class_id[]">
-                                            <option selected="" disabled="" value="">Select Student Class
-                                            </option>
-                                            @foreach ($all_classes as $class)
-                                            <option value="{{ $class->id }}">{{ $class->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <br>
-
-
-                                    </div>
-
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label class="form-label">Amount</label>
-                                        <input type="text" class="form-control" name="amount[]">
-                                    </div>
-                                </div>
-                                <div class="col-md-1" style="padding: 25px;">
-                                    <div class="mb-3">
-                                        <span class="btn btn-success addeventmore"><i
-                                                class="fa fa-plus-circle"></i></span><br>
-                                        {{-- <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i></span> --}}
-                                    {{-- </div>
-                                </div>
-                                <div class="col-md-1" style="padding: 25px;">
-                                    <div class="mb-3">
-                                        {{-- <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span><br> --}}
-                                        {{-- <span class="btn btn-danger removeeventmore"><i
-                                                class="fa fa-minus-circle"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-                {{-- </div> --}} 
             </div>
         </div>
-        </div>
-        </div>
-        
+
+    </div>
+</div>
 
 
-        @if (count($errors) > 0)
-        <script type="text/javascript">
-            $( document ).ready(function() {
+@if (count($errors) > 0)
+<script type="text/javascript">
+    $( document ).ready(function() {
              $('#addStudentFeesCategoryAmountModal').modal('show');
         });
-        </script>
-        @endif
+</script>
+@endif
 
-        <script type="text/javascript">
-            $(document).ready(function(){
-    var counter = 0;
-    $(document).on("click",".addeventmore",function(){
-        var whole_extra_item_add = $('#whole_extra_item_add').html();
-        $(this).closest(".add_item").append(whole_extra_item_add);
-        counter++;
+{{-- <script type="text/javascript">
+    $(document).ready(function(){ 
+        var counter = 0;
+        $(document).on("click",".addfields",function(){
+            var whole_extra_item_add = $('#whole_extra_item_add').html();
+            $(this).closest(".add_item").append(whole_extra_item_add);
+            counter++;
+        });
+        $(document).on("click",".removefields",function(){
+            $(this).closest(".delete_whole_extra_item_add")remove();
+    counter-= 1
+        });
     });
-    $(document).on("click",".removeeventmore",function(){
-        $(this).closest(".delete_whole_extra_item_add")remove();
-counter -= 1
+</script> --}}
+<script type="text/javascript">
+var i = 0;
+   $('#addfields').click(
+    function(){
+      ++i;
+    $('#showfields')
+    // .append()
+    .show();
+   
     });
-});
-        </script>
+    $('#removefields').click(
+    function(){
+    $('#showfields').hide();
+    });
+    
+</script>

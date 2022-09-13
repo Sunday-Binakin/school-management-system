@@ -40,8 +40,7 @@ class ProfileController extends Controller
      */
     public function store(storeProfileData $request)
     {
-        // Retrieve the validated input data...
-        // $request->validated();
+       
 
         
     }

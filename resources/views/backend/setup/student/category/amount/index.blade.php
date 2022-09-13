@@ -36,7 +36,7 @@
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                     <a class="btn btn-primary btn-rounded waves-effect waves-light"
                                         style="float: right; width:210px" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#addStudentFeesCategoryAmountModal">Add  Fees Category Amount</a>
+                                        data-bs-target="#addStudentFeesCategoryAmountModal">Add Fees Category Amount</a>
                                     <br>
                                     <br>
                                     <hr>
@@ -78,27 +78,26 @@
                                                     {{-- @foreach ($all_fees_amount as $key=>$amount )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
-                                                        <td style="display: none;">{{ $amount->name }}</td>
-                                                        <td style="display: none;">
-                                                            {{ $amount->updated_at->diffForHumans() }}
-                                                        </td>
-                                                        <td>
-                                                            <div class="btn-group me-2 mb-2 mb-sm-0">
-                                                                <a href="#" data-bs-toggle="modal"
-                                                                    data-bs-target="#editStudentFeesCategoryAmountModal{{ $amount->id }}"
-                                                                    class="btn btn-primary waves-light waves-effect"
-                                                                    style="width: 70px"><i
-                                                                        class="ri-edit-box-line"></i></a>
+                                                    <td style="display: none;">{{ $amount->name }}</td>
+                                                    <td style="display: none;">
+                                                        {{ $amount->updated_at->diffForHumans() }}
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group me-2 mb-2 mb-sm-0">
+                                                            <a href="#" data-bs-toggle="modal"
+                                                                data-bs-target="#editStudentFeesCategoryAmountModal{{ $amount->id }}"
+                                                                class="btn btn-primary waves-light waves-effect"
+                                                                style="width: 70px"><i class="ri-edit-box-line"></i></a>
 
-                                                                <a href="{{ route('setup.student.fees.category.amount.destroy',$amount->id) }}"
-                                                                    class="btn btn-danger waves-light waves-effect"
-                                                                    id="delete" style="width: 70px"><i
-                                                                        class="far fa-trash-alt" type="button"></i></a>
-                                                            </div>
+                                                            <a href="{{ route('setup.student.fees.category.amount.destroy',$amount->id) }}"
+                                                                class="btn btn-danger waves-light waves-effect"
+                                                                id="delete" style="width: 70px"><i
+                                                                    class="far fa-trash-alt" type="button"></i></a>
+                                                        </div>
 
-                                                        </td> --}}
-                                                        <!-- Edit Modal -->
-                                                        {{-- @include('backend.setup.student.category.amount.modal.edit')
+                                                    </td> --}}
+                                                    <!-- Edit Modal -->
+                                                    {{-- @include('backend.setup.student.category.amount.modal.edit')
                                                     </tr>
                                                     @endforeach --}}
                                                 </tbody>
@@ -116,6 +115,60 @@
 
     <!-- Add Modal -->
     @include('backend.setup.student.category.amount.modal.create')
-
+    {{-- <!--hidden input form-!> --}}
+    {{-- <div style="visibility: hidden;">
+        <div class="whole_extra_item_add" id="whole_extra_item_add">
+            <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="mb-3">
+                            <label class="form-label">Student Class</label>
+                            <select class="form-select" name="class_id[]">
+                                <option selected="" disabled="" value="">Select Student Class
+                                </option>
+                                @foreach ($all_classes as $class)
+                                <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                @endforeach
+                            </select>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Amount</label>
+                            <input type="text" class="form-control" name="amount[]">
+                        </div>
+                    </div>
+                    <div class="col-md-1" style="padding: 25px;">
+                        <div class="mb-3">
+                            <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span><br>
+                            <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-md-1" style="padding: 25px;">
+                        <div class="mb-3">
+                            <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span><br>
+                            <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    {{-- <!end hidden form-!> --}}
+    {{-- <script type="text/javascript">
+        $(document).ready(function(){ 
+        var counter = 0;
+        $(document).on("click",".addeventmore",function(){
+            var whole_extra_item_add = $('#whole_extra_item_add').html();
+            $(this).closest(".add_item").append(whole_extra_item_add);
+            counter++;
+        });
+        $(document).on("click",".removeeventmore",function(){
+            $(this).closest(".delete_whole_extra_item_add")remove();
+    counter--;
+        });
+    });
+    </script> --}}
 
     @endsection
