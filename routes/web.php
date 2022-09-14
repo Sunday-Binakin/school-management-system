@@ -89,6 +89,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('setup/student/fees/category/amount')->controller(FeesCategoryAmountController::class)->group(function () {
         Route::get('/index', 'index')->name('setup.student.fees.category.amount.index');
         Route::post('/store', 'store')->name('setup.student.fees.category.amount.store');
+        Route::get('/edit/{fee_category_id}', 'edit')->name('setup.student.fees.category.amount.edit');
         Route::post('/update/{id}', 'update')->name('setup.student.fees.category.amount.update');
         Route::get('/destroy{id}', 'destroy')->name('setup.student.fees.category.amount.destroy');
     });

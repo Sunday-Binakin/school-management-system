@@ -64,11 +64,11 @@
                     
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('setup.student.fees.category.index') }}">Student Fees Category</a></li>
+                        <li><a href="{{ route('setup.student.fees.category.index') }}"> Fees Category</a></li>
                     
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('setup.student.fees.category.amount.index') }}">Student Fees Category Amount</a></li>
+                        <li><a href="{{ route('setup.student.fees.category.amount.index') }}"> Fees Category Amount</a></li>
                     
                     </ul>
                 </li>

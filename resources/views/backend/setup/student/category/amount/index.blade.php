@@ -85,8 +85,9 @@
                                                     </td> --}}
                                                     <td>
                                                         <div class="btn-group me-2 mb-2 mb-sm-0">
-                                                            <a href="#" data-bs-toggle="modal"
-                                                                data-bs-target="#editStudentFeesCategoryAmountModal{{ $amount->id }}"
+                                                            <a href="{{ route('setup.student.fees.category.amount.edit',$amount->fee_category_id) }}" 
+                                                                {{-- data-bs-toggle="modal" --}}
+                                                                {{-- data-bs-target="#editStudentFeesCategoryAmountModal{{ $amount->fee_category_id }}" --}}
                                                                 class="btn btn-primary waves-light waves-effect"
                                                                 style="width: 70px"><i class="ri-edit-box-line"></i></a>
 
