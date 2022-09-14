@@ -36,7 +36,8 @@
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                     <a class="btn btn-primary btn-rounded waves-effect waves-light"
                                         style="float: right; width:210px" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#addStudentFeesCategoryAmountModal">Add Fees Category Amount</a>
+                                        data-bs-target="#addStudentFeesCategoryAmountModal"><i class="glyphicon glyphicon-plus ">
+                                            Add Fees  Amount</i></a>
                                     <br>
                                     <br>
                                     <hr>
@@ -59,12 +60,12 @@
                                                             rowspan="1" colspan="1" style="width: 20%; display: none;"
                                                             aria-label="Amount: activate to sort column ascending">
 
-                                                            Amount</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                            Fee Category </th>
+                                                        {{-- <th class="sorting" tabindex="0" aria-controls="datatable"
                                                             rowspan="1" colspan="1" style="width: 20%; display: none;"
                                                             aria-label="Created: activate to sort column ascending">
 
-                                                            Date Created</th>
+                                                            Date Created</th> --}}
 
 
                                                         <th class="sorting" tabindex="0" aria-controls="datatable"
@@ -75,13 +76,13 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {{-- @foreach ($all_fees_amount as $key=>$amount )
+                                                  @foreach ($all_fees as $key=>$amount )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
-                                                    <td style="display: none;">{{ $amount->name }}</td>
-                                                    <td style="display: none;">
+                                                    <td style="display: none;">{{ $amount['fee_category']['name']}}</td>
+                                                    {{-- <td style="display: none;">
                                                         {{ $amount->updated_at->diffForHumans() }}
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
                                                         <div class="btn-group me-2 mb-2 mb-sm-0">
                                                             <a href="#" data-bs-toggle="modal"
@@ -89,17 +90,17 @@
                                                                 class="btn btn-primary waves-light waves-effect"
                                                                 style="width: 70px"><i class="ri-edit-box-line"></i></a>
 
-                                                            <a href="{{ route('setup.student.fees.category.amount.destroy',$amount->id) }}"
+                                                            <a href="#"
                                                                 class="btn btn-danger waves-light waves-effect"
                                                                 id="delete" style="width: 70px"><i
                                                                     class="far fa-trash-alt" type="button"></i></a>
                                                         </div>
 
-                                                    </td> --}}
+                                                    </td>
                                                     <!-- Edit Modal -->
-                                                    {{-- @include('backend.setup.student.category.amount.modal.edit')
+                                                   @include('backend.setup.student.category.amount.modal.edit')
                                                     </tr>
-                                                    @endforeach --}}
+                                                    @endforeach 
                                                 </tbody>
                                             </table>
                                         </div>

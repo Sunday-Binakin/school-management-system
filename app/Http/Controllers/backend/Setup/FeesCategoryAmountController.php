@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend\setup;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FeesAmountRequest;
+use App\Models\setup\FeesCategoryAmount;
 use App\Models\Setup\StudentClass;
 use App\Models\setup\StudentFeesCategory;
 use Illuminate\Http\Request;
@@ -18,7 +20,10 @@ class FeesCategoryAmountController extends Controller
     {
         $all_categories = StudentFeesCategory::all();
         $all_classes = StudentClass::all();
-        return view('backend.setup.student.category.amount.index',compact('all_categories','all_classes'));
+        // $all_fees = FeesCategoryAmount::all();
+        $all_fees = FeesCategoryAmount::select('fee_category_id')->groupBy('fee_category_id')->get(); // to display the name associated with this
+        // id you need to create the relationship in the model
+        return view('backend.setup.student.category.amount.index',compact('all_categories','all_classes', 'all_fees'));
     }
 
     /**
@@ -37,9 +42,21 @@ class FeesCategoryAmountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FeesAmountRequest $request)
     {
         //
+        $count_class = count($request->class_id);
+        if ($count_class != NULL) { //counts the number of class id's selected 
+            for ($i = 0; $i < $count_class; $i++) {
+                FeesCategoryAmount::create([
+                    'fee_category_id' => $request->input('fee_category_id'),
+                    'class_id' => $request->class_id[$i],
+                    'amount' => $request->amount[$i],
+                ]);
+            }
+        }
+        alert()->success('Fees Amount Added')->persistent(true, false);
+        return redirect()->route('setup.student.fees.category.amount.index');
     }
 
     /**
