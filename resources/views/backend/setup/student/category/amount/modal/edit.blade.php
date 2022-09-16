@@ -13,7 +13,7 @@
                     @csrf
                     <div class="row">
                         <div class="add_item" id="add_item">
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">Fee Category</label>
@@ -28,7 +28,7 @@
                     
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="mb-3">

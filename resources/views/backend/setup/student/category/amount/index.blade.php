@@ -79,7 +79,7 @@
                                                   @foreach ($all_fees as $key=>$amount )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
-                                                    <td style="display: none;">{{ $amount['fee_category']['name']}}</td>
+                                                    <td style="display: none;">{{ $amount['fee_category']['name']??"Deleted"}}</td>
                                                     {{-- <td style="display: none;">
                                                         {{ $amount->updated_at->diffForHumans() }}
                                                     </td> --}}

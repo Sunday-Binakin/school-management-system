@@ -78,11 +78,12 @@ class FeesCategoryAmountController extends Controller
      */
     public function edit($fee_category_id)
     {
+        $editData = FeesCategoryAmount::where('fee_category_id', $fee_category_id)
+            ->orderBy('class_id', 'asc')->get();
         $all_categories = StudentFeesCategory::all();
         $all_classes = StudentClass::all();
-        $editData = FeesCategoryAmount::where('fee_category_id', $fee_category_id)
-        ->orderBy('class_id', 'asc')->get();
-        return view('backend.setup.student.category.amount.edit', compact('all_categories', 'all_classes', 'editData'));
+       
+        return view('backend.setup.student.category.amount.edit', compact('editData','all_categories', 'all_classes'));
         // return view('backend.setup.student.category.amount.modal.edit', compact('all_categories', 'all_classes', 'edit_data'));
         // return view('backend.setup.student.category.amount.modal.edit', ["all_categories"=> $all_categories, "all_classes"=>$all_classes, "edit_data"=>$edit_data]);
     }
