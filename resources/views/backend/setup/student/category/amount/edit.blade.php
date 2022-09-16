@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Edit Fees Amount</h4><br>
                         <hr>
-                        <form method="post" action="">
+                        <form method="post" action="{{ route('setup.student.fees.category.amount.update',$editData[0]->fee_category_id) }}">
                             @csrf
                             <div class="row">
                                 <div class="add_item" id="add_item">

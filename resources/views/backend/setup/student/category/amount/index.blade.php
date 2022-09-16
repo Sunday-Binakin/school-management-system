@@ -91,16 +91,16 @@
                                                                 class="btn btn-primary waves-light waves-effect"
                                                                 style="width: 70px"><i class="ri-edit-box-line"></i></a>
 
-                                                            <a href="#"
-                                                                class="btn btn-danger waves-light waves-effect"
-                                                                id="delete" style="width: 70px"><i
-                                                                    class="far fa-trash-alt" type="button"></i></a>
+                                                            <a href="{{ route('setup.student.fees.category.amount.show',$amount->fee_category_id) }}"
+                                                                class="btn btn-secondary waves-light waves-effect"
+                                                                style="width: 70px"><i
+                                                                    class=" mdi mdi-eye" type="button"></i></a>
                                                         </div>
 
                                                     </td>
                                                     <!-- Edit Modal -->
-                                                   @include('backend.setup.student.category.amount.modal.edit')
-                                                    </tr>
+                                                   {{-- @include('backend.setup.student.category.amount.modal.edit')
+                                                    </tr> --}}
                                                     @endforeach 
                                                 </tbody>
                                             </table>
