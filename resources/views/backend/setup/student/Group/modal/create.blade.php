@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="">
+                <form method="post" action="{{ route('setup.student.group.store') }}">
                     @csrf
                     <div class="row">
                         <div class="row">
@@ -28,7 +28,7 @@
                         <br>
                         <div class="mb-3">
                             <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
-                                value="Add Group" style="width: 120px">
+                                value="Submit" style="width: 120px">
                         </div>
                     </div>
                 </form>
