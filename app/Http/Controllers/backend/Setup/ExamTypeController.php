@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\backend\Setup;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\Setup\ExamType;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ExamTypeRequest;
 
 class ExamTypeController extends Controller
 {
@@ -14,7 +17,8 @@ class ExamTypeController extends Controller
      */
     public function index()
     {
-        return view('backend.setup.student.exam.index');
+        $all_data = ExamType::all();
+        return view('backend.setup.student.exam.index', compact('all_data'));
     }
 
     /**
@@ -33,9 +37,18 @@ class ExamTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExamTypeRequest $request)
     {
         //
+        $request->validated();
+        ExamType::create([
+            'name' => $request->input('name'),
+            'created_at' => Carbon::now(),
+        ]);
+
+
+        alert()->success('Exam Type Added')->persistent(true, false);
+        return redirect()->route('setup.student.exam.type.index');
     }
 
     /**
@@ -67,9 +80,15 @@ class ExamTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ExamTypeRequest $request, $id)
     {
-        //
+        $request->validated();
+        ExamType::FindOrFail($id)->update([
+            'name' => $request->input('name'),
+            'updated_at' => Carbon::now(),
+        ]);
+        toast('Exam Type Updated', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('setup.student.exam.type.index');
     }
 
     /**
@@ -81,5 +100,7 @@ class ExamTypeController extends Controller
     public function destroy($id)
     {
         //
+        ExamType::FindOrFail($id)->delete();
+        return redirect()->route('setup.student.exam.type.index');
     }
 }

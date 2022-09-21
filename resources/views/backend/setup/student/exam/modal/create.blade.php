@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="">
+                <form method="post" action="{{ route('setup.student.exam.type.store') }}">
                     @csrf
                     <div class="row">
                         <div class="row">

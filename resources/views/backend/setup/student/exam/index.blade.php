@@ -75,21 +75,21 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {{-- @foreach ($all_subjects as $key=>$subject )
+                                                    @foreach ($all_data as $key=>$exam_type )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
-                                                        <td style="display: none;">{{ $subject->name }}</td>
+                                                        <td style="display: none;">{{ $exam_type->name }}</td>
                                                         <td style="display: none;">
-                                                            {{ $subject->updated_at->diffForHumans() }}</td>
+                                                            {{ $exam_type->updated_at->diffForHumans() }}</td>
                                                         <td>
                                                             <div class="btn-group me-2 mb-2 mb-sm-0">
                                                                 <a href="#" data-bs-toggle="modal"
-                                                                    data-bs-target="#editStudentSubjectModal{{ $subject->id }}"
+                                                                    data-bs-target="#addStudentExamTypeModal{{ $exam_type->id }}"
                                                                     class="btn btn-primary waves-light waves-effect"
                                                                     style="width: 70px"><i
                                                                         class="ri-edit-box-line"></i></a>
 
-                                                                <a href="{{ route('setup.student.class.destroy',$subject->id) }}"
+                                                                <a href="{{ route('setup.student.exam.type.destroy',$exam_type->id) }}"
                                                                     class="btn btn-danger waves-light waves-effect"
                                                                     id="delete" style="width: 70px"><i
                                                                         class="far fa-trash-alt" type="button"></i></a>
@@ -97,9 +97,9 @@
 
                                                         </td>
                                                         <!-- Edit Modal -->
-                                                        @include('backend.setup.student.subject.modal.edit')
+                                                     @include('backend.setup.student.exam.modal.edit')
                                                     </tr>
-                                                    @endforeach --}}
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
