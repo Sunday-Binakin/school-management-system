@@ -10,9 +10,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Setup</a></li>
-                           
-                            <li class="breadcrumb-item active">Student</li>
-                            <li class="breadcrumb-item active">Exam Type </li>
+                            <li class="breadcrumb-item active">Assign Subject</li>
                         </ol>
                     </div>
 
@@ -29,7 +27,7 @@
                             <div class="card-body">
                                 {{-- <hr> --}}
 
-                                <h4 class="card-title">Exam Type </h4>
+                                <h4 class="card-title">Assign Subject</h4>
                                 {{-- <p class="card-title-desc">DataTables has most features enabled by
                                     default, so all you need to do to use it with your own tables is to call
                                     the construction function: <code>$().DataTable();</code>.
@@ -37,8 +35,10 @@
 
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                     <a class="btn btn-primary btn-rounded waves-effect waves-light"
-                                        style="float: right; width:160px" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#addStudentExamTypeModal">Add Exam Type</a>
+                                        style="float: right; width:160px" href="{{ route('setup.student.assign.subject.create') }}" 
+                                        {{-- data-bs-toggle="modal"
+                                        data-bs-target="#addStudenClassModal" --}}
+                                        >Assign Subject</a>
                                     <br>
                                     <br>
                                     <hr>
@@ -64,7 +64,7 @@
                                                             Name</th>
                                                         <th class="sorting" tabindex="0" aria-controls="datatable"
                                                             rowspan="1" colspan="1" style="width: 20%; display: none;"
-                                                            aria-label="Created: activate to sort column ascending">
+                                                            aria-label="Name: activate to sort column ascending">
 
                                                             Date Created</th>
 
@@ -77,21 +77,21 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($all_data as $key=>$exam_type )
+                                                    {{-- @foreach ($all_classes as $key=>$class )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
-                                                        <td style="display: none;">{{ $exam_type->name }}</td>
+                                                        <td style="display: none;">{{ $class->name }}</td>
                                                         <td style="display: none;">
-                                                            {{ $exam_type->updated_at->diffForHumans() }}</td>
+                                                            {{ $class->updated_at->diffForHumans() }}</td>
                                                         <td>
                                                             <div class="btn-group me-2 mb-2 mb-sm-0">
                                                                 <a href="#" data-bs-toggle="modal"
-                                                                    data-bs-target="#addStudentExamTypeModal{{ $exam_type->id }}"
+                                                                    data-bs-target="#editStudentClassModal{{ $class->id }}"
                                                                     class="btn btn-primary waves-light waves-effect"
                                                                     style="width: 70px"><i
                                                                         class="ri-edit-box-line"></i></a>
 
-                                                                <a href="{{ route('setup.student.exam.type.destroy',$exam_type->id) }}"
+                                                                <a href="{{ route('setup.student.class.destroy',$class->id) }}"
                                                                     class="btn btn-danger waves-light waves-effect"
                                                                     id="delete" style="width: 70px"><i
                                                                         class="far fa-trash-alt" type="button"></i></a>
@@ -99,9 +99,9 @@
 
                                                         </td>
                                                         <!-- Edit Modal -->
-                                                     @include('backend.setup.student.exam.modal.edit')
-                                                    </tr>
-                                                    @endforeach
+                                                        @include('backend.setup.student.class.modal.edit') --}}
+                                                    {{-- </tr> --}}
+                                                    {{-- @endforeach --}}
                                                 </tbody>
                                             </table>
                                         </div>
@@ -116,7 +116,7 @@
     </div>
 
     <!-- Add Modal -->
-    @include('backend.setup.student.exam.modal.create')
+    {{-- @include('backend.setup.student.class.modal.create') --}}
 
 
     @endsection

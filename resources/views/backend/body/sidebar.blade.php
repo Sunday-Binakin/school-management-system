@@ -79,6 +79,10 @@
                         <li><a href="{{ route('setup.student.exam.type.index') }}">Exam Type</a></li>
                     
                     </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('setup.student.assign.subject.index') }}">Assign Subject</a></li>
+                    
+                    </ul>
                 </li>
 
 

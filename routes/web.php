@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\ProfileController;
+use App\Http\Controllers\backend\Setup\AssignSubjectController;
 use App\Http\Controllers\backend\Setup\ExamTypeController;
 
 ;
@@ -107,6 +108,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', 'store')->name('setup.student.exam.type.store');
         Route::post('/update/{id}', 'update')->name('setup.student.exam.type.update');
         Route::get('/destroy{id}', 'destroy')->name('setup.student.exam.type.destroy');
+    });
+    Route::prefix('setup/student/assign/subject')->controller(AssignSubjectController::class)->group(function () {
+        Route::get('/index', 'index')->name('setup.student.assign.subject.index');
+        Route::get('/create', 'create')->name('setup.student.assign.subject.create');
+        Route::post('/store', 'store')->name('setup.student.assign.subject.store');
+        Route::post('/update/{id}', 'update')->name('setup.student.assign.subject.update');
+        Route::get('/destroy{id}', 'destroy')->name('setup.student.assign.subject.destroy');
     });
 });
 Route::get('/dashboard', function () {
