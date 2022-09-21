@@ -10,7 +10,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Setup</a></li>
-                            <li class="breadcrumb-item active">Student Subject </li>
+                            <li class="breadcrumb-item active">Exam Type </li>
                         </ol>
                     </div>
 
@@ -27,7 +27,7 @@
                             <div class="card-body">
                                 {{-- <hr> --}}
 
-                                <h4 class="card-title">Student Subject </h4>
+                                <h4 class="card-title">Exam Type </h4>
                                 {{-- <p class="card-title-desc">DataTables has most features enabled by
                                     default, so all you need to do to use it with your own tables is to call
                                     the construction function: <code>$().DataTable();</code>.
@@ -36,7 +36,7 @@
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                     <a class="btn btn-primary btn-rounded waves-effect waves-light"
                                         style="float: right; width:160px" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#addStudenSubjectModal">Add Student Subject</a>
+                                        data-bs-target="#addStudentExamTypeModal">Add Exam Type</a>
                                     <br>
                                     <br>
                                     <hr>
@@ -75,7 +75,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($all_subjects as $key=>$subject )
+                                                    {{-- @foreach ($all_subjects as $key=>$subject )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
                                                         <td style="display: none;">{{ $subject->name }}</td>
@@ -99,7 +99,7 @@
                                                         <!-- Edit Modal -->
                                                         @include('backend.setup.student.subject.modal.edit')
                                                     </tr>
-                                                    @endforeach
+                                                    @endforeach --}}
                                                 </tbody>
                                             </table>
                                         </div>
@@ -114,7 +114,7 @@
     </div>
 
     <!-- Add Modal -->
-    @include('backend.setup.student.subject.modal.create')
+    @include('backend.setup.student.exam.modal.create')
 
 
     @endsection

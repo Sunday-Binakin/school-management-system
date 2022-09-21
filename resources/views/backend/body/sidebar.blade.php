@@ -75,6 +75,10 @@
                         <li><a href="{{ route('setup.student.fees.category.amount.index') }}"> Fees Category Amount</a></li>
                     
                     </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('setup.student.exam.type.index') }}">Exam Type</a></li>
+                    
+                    </ul>
                 </li>
 
 

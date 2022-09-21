@@ -114,7 +114,7 @@
     </div>
 
     <!-- Add Modal -->
-    @include('backend.setup.student.shift.modal.create');
+    @include('backend.setup.student.Group.modal.create')
 
 
     @endsection

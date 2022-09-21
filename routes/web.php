@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\ProfileController;
+use App\Http\Controllers\backend\Setup\ExamTypeController;
+
 ;
 use App\Http\Controllers\backend\setup\StudentYearController;
 use App\Http\Controllers\backend\Setup\StudentClassController;
@@ -99,6 +101,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', 'store')->name('setup.student.group.store');
         Route::post('/update/{id}', 'update')->name('setup.student.group.update');
         Route::get('/destroy{id}', 'destroy')->name('setup.student.group.destroy');
+    });
+    Route::prefix('setup/student/exam/type')->controller(ExamTypeController::class)->group(function () {
+        Route::get('/index', 'index')->name('setup.student.exam.type.index');
+        Route::post('/store', 'store')->name('setup.student.exam.type.store');
+        Route::post('/update/{id}', 'update')->name('setup.student.exam.type.update');
+        Route::get('/destroy{id}', 'destroy')->name('setup.student.exam.type.destroy');
     });
 });
 Route::get('/dashboard', function () {
