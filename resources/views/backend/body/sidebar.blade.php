@@ -52,6 +52,10 @@
 
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('setup.student.group.index') }}">Student Group</a></li>
+                    
+                    </ul>
+                    <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.year.index') }}">Student Year</a></li>
 
                     </ul>

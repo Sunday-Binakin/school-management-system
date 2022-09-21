@@ -12,7 +12,7 @@ use App\Http\Controllers\backend\setup\StudentShiftController;
 use App\Http\Controllers\backend\setup\StudentSubjectController;
 use App\Http\Controllers\backend\setup\FeesCategoryAmountController;
 use App\Http\Controllers\backend\setup\StudentFeesCategoryController;
-
+use App\Http\Controllers\backend\Setup\StudentGroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +93,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{fee_category_id}', 'edit')->name('setup.student.fees.category.amount.edit');
         Route::post('/update/{fee_category_id}', 'update')->name('setup.student.fees.category.amount.update');
         Route::get('/destroy{id}', 'destroy')->name('setup.student.fees.category.amount.destroy');
+    });
+    Route::prefix('setup/student/group')->controller(StudentGroupController::class)->group(function () {
+        Route::get('/index', 'index')->name('setup.student.group.index');
+        Route::post('/store', 'store')->name('setup.student.group.store');
+        Route::post('/update/{id}', 'update')->name('setup.student.group.update');
+        Route::get('/destroy{id}', 'destroy')->name('setup.student.group.destroy');
     });
 });
 Route::get('/dashboard', function () {
