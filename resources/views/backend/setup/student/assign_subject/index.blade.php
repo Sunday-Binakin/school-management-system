@@ -77,31 +77,31 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {{-- @foreach ($all_classes as $key=>$class )
+                                                    @foreach ($all_data as $key=>$assign_subject )
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
-                                                        <td style="display: none;">{{ $class->name }}</td>
+                                                        <td style="display: none;">{{ $assign_subject->name }}</td>
                                                         <td style="display: none;">
-                                                            {{ $class->updated_at->diffForHumans() }}</td>
+                                                            {{ $assign_subject->updated_at->diffForHumans() }}</td>
                                                         <td>
                                                             <div class="btn-group me-2 mb-2 mb-sm-0">
-                                                                <a href="#" data-bs-toggle="modal"
-                                                                    data-bs-target="#editStudentClassModal{{ $class->id }}"
+                                                                <a href="#" 
+                                                                {{-- data-bs-toggle="modal"
+                                                                    data-bs-target="#editStudentClassModal{{ $class->id }}" --}}
                                                                     class="btn btn-primary waves-light waves-effect"
-                                                                    style="width: 70px"><i
-                                                                        class="ri-edit-box-line"></i></a>
+                                                                    style="width: 70px">
+                                                                    <i class="ri-edit-box-line"></i></a>
 
-                                                                <a href="{{ route('setup.student.class.destroy',$class->id) }}"
+                                                                <a href="{{ route('setup.student.assign.subject.destroy',$assign_subject->id) }}"
                                                                     class="btn btn-danger waves-light waves-effect"
                                                                     id="delete" style="width: 70px"><i
                                                                         class="far fa-trash-alt" type="button"></i></a>
                                                             </div>
 
                                                         </td>
-                                                        <!-- Edit Modal -->
-                                                        @include('backend.setup.student.class.modal.edit') --}}
-                                                    {{-- </tr> --}}
-                                                    {{-- @endforeach --}}
+                                                        
+                                                     </tr> 
+                                                     @endforeach 
                                                 </tbody>
                                             </table>
                                         </div>
@@ -115,8 +115,7 @@
         </div>
     </div>
 
-    <!-- Add Modal -->
-    {{-- @include('backend.setup.student.class.modal.create') --}}
+
 
 
     @endsection

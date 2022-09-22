@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\backend\Setup;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setup\AssignSubject;
+use App\Models\Setup\StudentClass;
 use Illuminate\Http\Request;
+use App\Models\setup\StudentSubject;
 
 class AssignSubjectController extends Controller
 {
@@ -13,8 +16,10 @@ class AssignSubjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('backend.setup.student.assign_subject.index');
+    {//displaying all data in the index page
+        $data['all_data'] = AssignSubject::all();
+        
+        return view('backend.setup.student.assign_subject.index',$data);
     }
 
     /**
@@ -25,7 +30,9 @@ class AssignSubjectController extends Controller
     public function create()
     {
         //
-        return view('backend.setup.student.assign_subject.create');
+        $data['subjects'] = StudentSubject::all();
+        $data['classes'] = StudentClass::all();
+        return view('backend.setup.student.assign_subject.create',$data);
     }
 
     /**
