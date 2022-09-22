@@ -113,6 +113,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/index', 'index')->name('setup.student.assign.subject.index');
         Route::get('/create', 'create')->name('setup.student.assign.subject.create');
         Route::post('/store', 'store')->name('setup.student.assign.subject.store');
+            Route::get('/edit/{class_id}', 'edit')->name('setup.student.assign.subject.edit');
         Route::post('/update/{id}', 'update')->name('setup.student.assign.subject.update');
         Route::get('/destroy{id}', 'destroy')->name('setup.student.assign.subject.destroy');
     });

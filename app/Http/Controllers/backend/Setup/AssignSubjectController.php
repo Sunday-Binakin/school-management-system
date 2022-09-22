@@ -5,9 +5,11 @@ namespace App\Http\Controllers\backend\Setup;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AssignSubjectRequest;
 use App\Models\Setup\AssignSubject;
+use App\Models\setup\FeesCategoryAmount;
 use App\Models\Setup\StudentClass;
 use Illuminate\Http\Request;
 use App\Models\setup\StudentSubject;
+use Carbon\Carbon;
 
 class AssignSubjectController extends Controller
 {
@@ -18,7 +20,7 @@ class AssignSubjectController extends Controller
      */
     public function index()
     { //displaying all data in the index page
-        $data['all_data'] = AssignSubject::all();
+        $data['all_data'] = AssignSubject::select('class_id')->groupBy('class_id')->get();
 
         return view('backend.setup.student.assign_subject.index', $data);
     }
@@ -54,6 +56,7 @@ class AssignSubjectController extends Controller
                     'full_mark' => $request->full_mark[$i],
                     'pass_mark' => $request->pass_mark[$i],
                     'subjective_mark' => $request->subjective_mark[$i],
+                    'created_at'=>Carbon::now()
                 ]);
             }
         }
@@ -79,9 +82,13 @@ class AssignSubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($class_id)
     {
         //   
+        $data['edit_data'] = AssignSubject::where('class_id',$class_id)->orderBy('subject_id','asc')->get();
+        $data['subjects'] = StudentSubject::all();
+        $data['classes'] = StudentClass::all();
+        return view('backend.setup.student.assign_subject.edit', $data);
     }
 
     /**

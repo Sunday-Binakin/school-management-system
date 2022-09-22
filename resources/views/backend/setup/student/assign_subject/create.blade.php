@@ -61,9 +61,8 @@
                                                 @foreach ($subjects as $subject)
                                                 <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                                                 @endforeach
-
-
                                             </select>
+                                            <br>
                                             <span>
                                                 @error('subject_id')
                                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -76,7 +75,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">Full Mark<span
                                                     class="text-danger">*</span></label>
-                                            <input type="email" class="form-control" name="full_mark[]">
+                                            <input type="text" class="form-control" name="full_mark[]">
                                             <br>
                                             <span>
                                                 @error('full_mark')
@@ -126,7 +125,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        {{-- </form> --}}
                         {{-- hidden input --}}
                         <div class="row fieldGroupCopy" style="display: none">
                             <div class="col-md-4">
@@ -138,6 +137,7 @@
                                         <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                                         @endforeach
                                     </select>
+                                    <br>
                                     <span>
                                         @error('class_id')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -201,6 +201,7 @@
                             <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
                                 value="Submit" style="width: 120px">
                         </div>
+                    </form>
 
                     </div>
                 </div>

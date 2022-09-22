@@ -24,8 +24,8 @@ class AssignSubjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'class_id' => 'required|unique:assign_subjects,class_id',
-            'subject_id' => 'required|unique:assign_subjects,subject_id',
+            'class_id' => 'required',
+            'subject_id' => 'required',
             'full_mark' => 'required',
             'pass_mark' => 'required',
             'subjective_mark' => 'required',
@@ -39,9 +39,9 @@ class AssignSubjectRequest extends FormRequest
     {
         return [
             'class_id.required' => 'Please Select the Class id',
-            'class_id.unique' => 'class id Already Exist',
+            // 'class_id.unique' => 'class id Already Exist',
             'subject_id.required' => 'Please Select the Subject id',
-            'subject_id.unique' => 'Subject id Already Exist',
+            // 'subject_id.unique' => 'Subject id Already Exist',
             'full_mark.required' => 'Please input the correct score',
             'pass_mark.required' => 'Please Add pass mark',
             'subjective_mark.required' => 'Please Add Subjective mark'
