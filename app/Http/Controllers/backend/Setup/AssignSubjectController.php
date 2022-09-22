@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend\Setup;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AssignSubjectRequest;
 use App\Models\Setup\AssignSubject;
 use App\Models\Setup\StudentClass;
 use Illuminate\Http\Request;
@@ -16,10 +17,10 @@ class AssignSubjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {//displaying all data in the index page
+    { //displaying all data in the index page
         $data['all_data'] = AssignSubject::all();
-        
-        return view('backend.setup.student.assign_subject.index',$data);
+
+        return view('backend.setup.student.assign_subject.index', $data);
     }
 
     /**
@@ -32,7 +33,7 @@ class AssignSubjectController extends Controller
         //
         $data['subjects'] = StudentSubject::all();
         $data['classes'] = StudentClass::all();
-        return view('backend.setup.student.assign_subject.create',$data);
+        return view('backend.setup.student.assign_subject.create', $data);
     }
 
     /**
@@ -41,9 +42,24 @@ class AssignSubjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AssignSubjectRequest $request)
     {
         //
+        $subject_count = count($request->input('subject_id'));
+        if ($subject_count != NULL) {
+            for ($i = 0; $i < $subject_count; $i++) {
+                AssignSubject::create([
+                    'class_id' => $request->input('class_id'),
+                    'subject_id' => $request->subject_id[$i],
+                    'full_mark' => $request->full_mark[$i],
+                    'pass_mark' => $request->pass_mark[$i],
+                    'subjective_mark' => $request->subjective_mark[$i],
+                ]);
+            }
+        }
+
+        alert()->success('Marks Added')->persistent(true, false);
+        return redirect()->route('setup.student.assign.subject.index');
     }
 
     /**
@@ -65,7 +81,7 @@ class AssignSubjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        //   
     }
 
     /**

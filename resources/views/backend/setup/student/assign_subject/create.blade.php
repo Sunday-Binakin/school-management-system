@@ -23,21 +23,22 @@
                     <div class="card-body">
                         <h4 class="card-title">Assign Subject</h4><br>
                         <hr>
-                        <form method="post" action="{{ route('user.store') }}">
+                        <form method="post" action="{{ route('setup.student.assign.subject.store') }}">
                             @csrf
                             <div class="row">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Class Name<span class="text-danger">*</span></label>
+                                            <label class="form-label">Class Name<span
+                                                    class="text-danger">*</span></label>
                                             <select class="form-select" name="class_id">
 
                                                 <option selected="" disabled="" value="">Select Class </option>
                                                 @foreach ( $classes as $class)
-                                                    <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                                <option value="{{ $class->id }}">{{ $class->name }}</option>
                                                 @endforeach
-                                                
-                                               
+
+
                                             </select>
                                             <br>
                                             <span>
@@ -51,17 +52,17 @@
 
                                 </div>
                                 <div class="row fieldGroup">
-
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label class="form-label">Student Subject</label>
+                                            <label class="form-label">Student Subject<span
+                                                    class="text-danger">*</span></label>
                                             <select class="form-select" name="subject_id[]">
                                                 <option selected="" disabled="" value="">Select Subject</option>
                                                 @foreach ($subjects as $subject)
-                                                    <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                                                 @endforeach
-                                                
-                                                
+
+
                                             </select>
                                             <span>
                                                 @error('subject_id')
@@ -73,7 +74,8 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
-                                            <label class="form-label">Full Mark</label>
+                                            <label class="form-label">Full Mark<span
+                                                    class="text-danger">*</span></label>
                                             <input type="email" class="form-control" name="full_mark[]">
                                             <br>
                                             <span>
@@ -86,7 +88,8 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
-                                            <label class="form-label">Pass Mark</label>
+                                            <label class="form-label">Pass Mark<span
+                                                    class="text-danger">*</span></label>
                                             <input type="text" class="form-control" name="pass_mark[]">
                                             <br>
                                             <span>
@@ -99,7 +102,8 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
-                                            <label class="form-label">Subjective Mark</label>
+                                            <label class="form-label">Subjective Mark<span
+                                                    class="text-danger">*</span></label>
                                             <input type="text" class="form-control" name="subjective_mark[]">
                                             <br>
                                             <span>
@@ -127,7 +131,7 @@
                         <div class="row fieldGroupCopy" style="display: none">
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label class="form-label">Student Subject</label>
+                                    <label class="form-label">Student Subject<span class="text-danger">*</span></label>
                                     <select class="form-select" name="subject_id[]">
                                         <option selected="" disabled="" value="">Select Subject</option>
                                         @foreach ($subjects as $subject)
@@ -144,7 +148,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="mb-3">
-                                    <label class="form-label">Full Mark</label>
+                                    <label class="form-label">Full Mark<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="full_mark[]">
                                     <br>
                                     <span>
@@ -157,7 +161,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="mb-3">
-                                    <label class="form-label">Pass Mark</label>
+                                    <label class="form-label">Pass Mark<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="pass_mark[]">
                                     <br>
                                     <span>
@@ -170,7 +174,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="mb-3">
-                                    <label class="form-label">Subjective Mark</label>
+                                    <label class="form-label">Subjective Mark<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="subjective_mark[]">
                                     <br>
                                     <span>
@@ -193,11 +197,11 @@
                             </div>
                         </div>
                         {{-- end of hidden input --}}
+                        <div class="mb-3">
+                            <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit"
+                                value="Submit" style="width: 120px">
+                        </div>
 
-
-
-                        <input class="btn btn-primary btn-rounded waves-effect waves-light" type="submit" value="Submit"
-                            style="width: 120px">
                     </div>
                 </div>
                 <br>
@@ -210,7 +214,6 @@
 
 </div>
 
-
 <script>
     $(document).ready(function(){
     //group add limit
@@ -222,6 +225,7 @@
         +$(".fieldGroupCopy").html()+'</div>';
         $('body').find('.fieldGroup:last').after(fieldHTML);
         }else{
+           
         alert('Maximum '+maxGroup+' groups are allowed.');
         }
         });
@@ -232,4 +236,5 @@
         });
         });
 </script>
+
 @endsection
