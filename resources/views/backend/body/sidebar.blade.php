@@ -83,6 +83,10 @@
                         <li><a href="{{ route('setup.student.assign.subject.index') }}">Assign Subject</a></li>
                     
                     </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Designation</a></li>
+                    
+                    </ul>
                 </li>
 
 
