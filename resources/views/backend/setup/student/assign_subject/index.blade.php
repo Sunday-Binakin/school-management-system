@@ -9,7 +9,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Setup</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('setup.student.assign.subject.index') }}">Setup</a></li>
                             <li class="breadcrumb-item active">Assign Subject</li>
                         </ol>
                     </div>
@@ -92,7 +92,7 @@
                                                                     style="width: 70px">
                                                                     <i class="ri-edit-box-line"></i></a>
 
-                                                                <a href="#"
+                                                                <a href="{{ route('setup.student.assign.subject.show',$assign_subject->class_id) }}"
                                                                     class="btn btn-secondary waves-light waves-effect"
                                                                     style="width: 70px"><i class=" mdi mdi-eye" type="button"></i></a>
                                                             </div>

@@ -47,6 +47,7 @@ class AssignSubjectController extends Controller
     public function store(AssignSubjectRequest $request)
     {
         //
+        $request->validated();
         $subject_count = count($request->input('subject_id'));
         if ($subject_count != NULL) {
             for ($i = 0; $i < $subject_count; $i++) {
@@ -56,7 +57,7 @@ class AssignSubjectController extends Controller
                     'full_mark' => $request->full_mark[$i],
                     'pass_mark' => $request->pass_mark[$i],
                     'subjective_mark' => $request->subjective_mark[$i],
-                    'created_at'=>Carbon::now()
+                    'created_at' => Carbon::now()
                 ]);
             }
         }
@@ -71,9 +72,11 @@ class AssignSubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($class_id)
     {
         //
+        $data['details_data'] = AssignSubject::where('class_id', $class_id)->orderBy('subject_id', 'asc')->get();
+        return view('backend.setup.student.assign_subject.show',$data);
     }
 
     /**
@@ -85,7 +88,7 @@ class AssignSubjectController extends Controller
     public function edit($class_id)
     {
         //   
-        $data['edit_data'] = AssignSubject::where('class_id',$class_id)->orderBy('subject_id','asc')->get();
+        $data['edit_data'] = AssignSubject::where('class_id', $class_id)->orderBy('subject_id', 'asc')->get();
         $data['subjects'] = StudentSubject::all();
         $data['classes'] = StudentClass::all();
         return view('backend.setup.student.assign_subject.edit', $data);
@@ -98,9 +101,41 @@ class AssignSubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AssignSubjectRequest $request, $class_id)
     {
         //
+        // $request->validated();
+
+        if ($request->subject_id == NULL) {
+            toast('subject can not be left null', 'success', 'top-right')->hideCloseButton();
+            return redirect()->route('setup.student.assign.subject.index');
+        }
+        // dd();
+         else {
+            $request->validated();
+            $count_class = count($request->subject_id);
+            AssignSubject::where('class_id', $class_id)->delete();
+            for ($i = 0; $i < $count_class; $i++) {
+                // AssignSubject::FindOrFail($class_id)->update([
+                //     'class_id' => $request->input('class_id'),
+                //     'subject_id' => $request->subject_id[$i],
+                //     'full_mark' => $request->full_mark[$i],
+                //     'pass_mark' => $request->pass_mark[$i],
+                //     'subject_mark' => $request->subjective_mark[$i]
+                // ]);
+                $assign_subject = new AssignSubject();
+                $assign_subject->class_id = $request->class_id;
+                $assign_subject->subject_id = $request->subject_id[$i];
+                $assign_subject->full_mark = $request->full_mark[$i];
+                $assign_subject->pass_mark = $request->pass_mark[$i];
+                $assign_subject->subjective_mark = $request->subjective_mark[$i];
+                $assign_subject->save();
+            } // End For Loop	 
+            
+            toast('Marks Updated', 'success', 'top-right')->hideCloseButton();
+        }
+        // alert()->success('Marks Updated')->persistent(true, false);
+        return redirect()->route('setup.student.assign.subject.index');
     }
 
     /**
