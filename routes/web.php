@@ -5,17 +5,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\ProfileController;
-use App\Http\Controllers\backend\Setup\AssignSubjectController;
 use App\Http\Controllers\backend\Setup\ExamTypeController;
+use App\Http\Controllers\backend\Setup\DesignatioController;
+use App\Http\Controllers\backend\Setup\DesignationController;
 
 ;
 use App\Http\Controllers\backend\setup\StudentYearController;
 use App\Http\Controllers\backend\Setup\StudentClassController;
+use App\Http\Controllers\backend\Setup\StudentGroupController;
 use App\Http\Controllers\backend\setup\StudentShiftController;
+use App\Http\Controllers\backend\Setup\AssignSubjectController;
 use App\Http\Controllers\backend\setup\StudentSubjectController;
 use App\Http\Controllers\backend\setup\FeesCategoryAmountController;
 use App\Http\Controllers\backend\setup\StudentFeesCategoryController;
-use App\Http\Controllers\backend\Setup\StudentGroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -116,6 +118,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{class_id}', 'edit')->name('setup.student.assign.subject.edit');
         Route::post('/update/{class_id}', 'update')->name('setup.student.assign.subject.update');
         Route::get('/show{class_id}', 'show')->name('setup.student.assign.subject.show');
+    });
+    Route::prefix('setup/student/designation')->controller(DesignationController::class)->group(function () {
+        Route::get('/index', 'index')->name('setup.student.designation.index');
+        Route::get('/create', 'create')->name('setup.student.designation.create');
+        Route::post('/store', 'store')->name('setup.student.designation.store');
+        // Route::get('/edit/{class_id}', 'edit')->name('setup.student.designation.edit');
+        Route::post('/update/{id}', 'update')->name('setup.student.designation.update');
+        Route::get('/destroy{id}', 'destroy')->name('setup.student.designation.destroy');
     });
 });
 Route::get('/dashboard', function () {

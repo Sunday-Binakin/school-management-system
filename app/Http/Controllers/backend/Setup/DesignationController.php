@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\backend\Setup;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DesignationRequest;
-use Illuminate\Http\Request;
+use App\Models\Setup\Designation;
 
-class DesignatioController extends Controller
+class DesignationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class DesignatioController extends Controller
      */
     public function index()
     {
-        //
+        $data['all_designations'] = Designation::all();
+        return view('backend.setup.student.designation.index',$data);
     }
 
     /**
@@ -37,6 +39,12 @@ class DesignatioController extends Controller
     public function store(DesignationRequest $request)
     {
         //
+        $request->validated();
+        Designation::create([
+            'name'=>$request->input('name')
+        ]);
+        alert()->success('Designation Added')->persistent(true, false);
+        return redirect()->route('setup.student.designation.index');
     }
 
     /**
@@ -71,6 +79,12 @@ class DesignatioController extends Controller
     public function update(DesignationRequest $request, $id)
     {
         //
+        $request->validated();
+        Designation::FindOrFail($id)->update([
+            'name' => $request->input('name')
+        ]);
+        toast('Designation Updated', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('setup.student.designation.index');
     }
 
     /**
@@ -82,5 +96,7 @@ class DesignatioController extends Controller
     public function destroy($id)
     {
         //
+        Designation::FindOrFail($id)->delete();
+        return redirect()->route('setup.student.designation.index');
     }
 }

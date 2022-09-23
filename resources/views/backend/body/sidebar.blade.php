@@ -84,7 +84,7 @@
                     
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Designation</a></li>
+                        <li><a href="{{ route('setup.student.designation.index') }}">Designation</a></li>
                     
                     </ul>
                 </li>
