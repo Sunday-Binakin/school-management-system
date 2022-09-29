@@ -10,7 +10,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                            <li class="breadcrumb-item active">Users Tables</li>
+                            <li class="breadcrumb-item active">Users </li>
                         </ol>
                     </div>
 
@@ -70,6 +70,11 @@
 
                                                         </th>
                                                         <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                            rowspan="1" colspan="1" style="width: 30%; display: none;"
+                                                            aria-label="Code: activate to sort column ascending">Code
+
+                                                        </th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
                                                             rowspan="1" colspan="1" style="width: 10%; display: none;"
                                                             aria-label="Action: activate to sort column ascending">
 
@@ -82,8 +87,8 @@
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
                                                         <td style="display: none;">{{ $users->user_type }}</td>
                                                         <td style="display: none;">{{ $users->name }}</td>
-
                                                         <td style="display: none;">{{ $users->email }}</td>
+                                                        <td style="display: none;">{{ $users->code }}</td>
                                                         <td div class="btn-group">
                                                             <button type="button" style="width: 100%"
                                                                 class="btn btn-primary btn-rounded waves-effect waves-light dropdown-toggle ri-edit-2-line"

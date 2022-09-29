@@ -24,7 +24,7 @@ class storeUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_type'=>'required',
+            'role'=>'required',
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8'
@@ -37,7 +37,7 @@ class storeUserRequest extends FormRequest
     public function messages()
     {
         return [
-            'user_type.required'=>'Select a User type',
+            'role.required'=> 'Select a role',
             'name.required'=>'Please Enter Your Name',
             'name.unique'=> 'The name you entered already exist',
             'email.required'=>'Please Enter a valid Email',

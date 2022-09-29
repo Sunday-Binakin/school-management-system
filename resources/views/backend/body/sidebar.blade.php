@@ -20,7 +20,8 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-
+                {{-- shows this tab if user role == admin --}}
+                @if(Auth::user()->role =='Admin') 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         {{-- {{ ($prefix == '/user')?'active':'' }}"> --}}
@@ -32,6 +33,8 @@
 
                     </ul>
                 </li>
+                @endif
+{{--end of this condition {{-- shows this tab if user role == admin --}} 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-profile-line"></i>
@@ -53,7 +56,7 @@
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.group.index') }}">Student Group</a></li>
-                    
+
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.year.index') }}">Student Year</a></li>
@@ -65,27 +68,28 @@
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.shift.index') }}">Student Shift</a></li>
-                    
+
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.fees.category.index') }}"> Fees Category</a></li>
-                    
+
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('setup.student.fees.category.amount.index') }}"> Fees Category Amount</a></li>
-                    
+                        <li><a href="{{ route('setup.student.fees.category.amount.index') }}"> Fees Category Amount</a>
+                        </li>
+
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.exam.type.index') }}">Exam Type</a></li>
-                    
+
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.assign.subject.index') }}">Assign Subject</a></li>
-                    
+
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('setup.student.designation.index') }}">Designation</a></li>
-                    
+
                     </ul>
                 </li>
 

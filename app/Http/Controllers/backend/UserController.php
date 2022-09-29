@@ -19,7 +19,8 @@ class UserController extends Controller
     public function index()
     {
         //
-        $allUsers = User::all();
+        // $allUsers = User::all();
+        $allUsers = User::where('user_type', 'Admin')->get();
 
         return view('backend.users.index', compact('allUsers'));
     }
@@ -46,20 +47,26 @@ class UserController extends Controller
         // Retrieve the validated input data...
         $request->validated();
 
-        // user::create([
-        //     'name' => $request->input('name'),
-        //     'email' => $request->input('email'),
-        //     'user_type' => $request->input('user_type'),
-        //     'password' => bcrypt($request->input('password')),
-        // 'created_at' => Carbon::now(),
-        // ]);
+        user::create([
+            $code = rand(0000, 9999),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'role' => $request->input('role'),
+            'user_type' => 'Admin',
+            'password' => bcrypt($code),
+            'created_at' => Carbon::now(),
+        ]);
 
-        $newUser = new User();
-        $newUser->name = $request->input('name');
-        $newUser->email = $request->input('email');
-        $newUser->user_type = $request->input('user_type');
-        $newUser->password = bcrypt($request->input('password'));
-        $newUser->save();
+        // a random number is genrated between (0000, 999) , which will be the dault password
+        // $newUser = new User();
+        // $code = rand(0000, 9999);
+        // $newUser->name = $request->input('name');
+        // $newUser->role = $request->input('role');
+        // $newUser->email = $request->input('email');
+        // $newUser->user_type = 'Admin';
+        // $newUser->password = bcrypt($code);
+        // $newUser->code = $code;
+        // $newUser->save();
 
         alert()->success('User Added')->persistent(true, false);
         return redirect()->route('user.index');
@@ -102,7 +109,7 @@ class UserController extends Controller
         user::FindOrFail($id)->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'user_type' => $request->input('user_type'),
+            'role' => $request->input('role'),
             'updated_at' => Carbon::now(),
         ]);
         toast('Updated', 'success', 'top-right')->hideCloseButton();

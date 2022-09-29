@@ -30,14 +30,14 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">User Role</label>
-                                            <select class="form-select" name="user_type">
-                                                <option selected="" disabled="" value="">Select User Role</option>
+                                            <select class="form-select" name="role">
+                                                <option selected="" disabled="" value="">Select Role</option>
                                                 <option value="Admin">Admin</option>
-                                                <option value="User">User</option>
+                                                <option value="Operator">Operator</option>
                                             </select>
                                             <br>
                                             <span>
-                                                @error('user_type')
+                                                @error('role')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
                                             </span>
@@ -61,7 +61,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="mb-3">
                                             <label class="form-label">User Email</label>
                                             <input type="email" class="form-control" name="email">
@@ -74,7 +74,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">User Password</label>
                                             <input type="password" class="form-control" name="password">
@@ -86,7 +86,7 @@
                                             </span>
 
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 
