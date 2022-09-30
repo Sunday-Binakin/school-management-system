@@ -47,7 +47,7 @@ class UserController extends Controller
         // Retrieve the validated input data...
         $request->validated();
 
-        user::create([
+        User::create([
             $code = rand(0000, 9999),
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -106,7 +106,7 @@ class UserController extends Controller
     public function update(updateUserRequest $request, $id)
     {
         //
-        user::FindOrFail($id)->update([
+        User::FindOrFail($id)->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'role' => $request->input('role'),
@@ -125,7 +125,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        user::FindOrFail($id)->delete();
+        User::FindOrFail($id)->delete();
 
         return redirect()->route('user.index');
     }
