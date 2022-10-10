@@ -10,7 +10,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                            <li class="breadcrumb-item active" ><a href="{{ route('user.create') }}">Users</a></li>
+                            <li class="breadcrumb-item active"><a href="#">Students</a></li>
                         </ol>
                     </div>
 
@@ -25,17 +25,10 @@
                         <div id="datatable-buttons_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
 
                             <div class="card-body">
-                                {{-- <hr> --}}
-
-                                <h4 class="card-title">User's List</h4>
-                                {{-- <p class="card-title-desc">DataTables has most features enabled by
-                                    default, so all you need to do to use it with your own tables is to call
-                                    the construction function: <code>$().DataTable();</code>.
-                                </p> --}}
-
+                                <h4 class="card-title">Students</h4>
                                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                     <a class="btn btn-primary btn-rounded waves-effect waves-light"
-                                        style="float: right; width:120px" href="{{ route('user.create') }}">Add User</a>
+                                        style="float: right; width:120px" href="{{ route('student.registration.create') }}">Add Student</a>
                                     <br>
                                     <br>
                                     <hr>
@@ -63,7 +56,7 @@
                                                             aria-label="Name: activate to sort column ascending">
 
                                                             Name</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable"
                                                             rowspan="1" colspan="1" style="width: 30%; display: none;"
                                                             aria-label="Username: activate to sort column ascending">
 
@@ -86,12 +79,10 @@
                                                             Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                {{-- <tbody>
 
                                                     @foreach ($allUsers as $key=>$users )
-                                                    {{-- @if($condition)
 
-                                                    @endif --}}
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
                                                         <td style="display: none;">{{ $users->user_type }}</td>
@@ -118,7 +109,7 @@
 
                                                     @endforeach
 
-                                                </tbody>
+                                                </tbody> --}}
                                             </table>
                                         </div>
 

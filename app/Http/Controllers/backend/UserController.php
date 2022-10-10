@@ -42,31 +42,33 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(storeUserRequest $request)
+    public function store(Request $request)
     {
+        //storeUserRequest
         // Retrieve the validated input data...
-        $request->validated();
+        // $request->validated();
 
-        User::create([
-            $code = rand(0000, 9999),
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'role' => $request->input('role'),
-            'user_type' => 'Admin',
-            'password' => bcrypt($code),
-            'created_at' => Carbon::now(),
-        ]);
-
-        // a random number is genrated between (0000, 999) , which will be the dault password
-        // $newUser = new User();
-        // $code = rand(0000, 9999);
-        // $newUser->name = $request->input('name');
-        // $newUser->role = $request->input('role');
-        // $newUser->email = $request->input('email');
-        // $newUser->user_type = 'Admin';
-        // $newUser->password = bcrypt($code);
-        // $newUser->code = $code;
-        // $newUser->save();
+        // User::create([
+        //    'code'=>$request->input(mt_rand(0000, 9999)),
+        //     'name' => $request->input('name'),
+        //     // 'name' => $request->name,
+        //     'email' => $request->input('email'),
+        //     'role' => $request->input('role'),
+        //     'user_type' => 'Admin',
+        //     // 'password' => bcrypt(mt_rand(0000, 9999)),
+        //      'password' => mt_rand(0000, 9999),
+        //     'created_at' => Carbon::now(),
+        // ]);
+        $data = new User();
+        $code = rand(0000,9999);
+    	$data->user_type = 'Admin';
+        $data->role = $request->role;
+    	$data->name = $request->name;
+        $data->username = $request->username;
+    	$data->email = $request->email;
+    	$data->password = bcrypt($code);
+        $data->code = $code;
+    	$data->save();
 
         alert()->success('User Added')->persistent(true, false);
         return redirect()->route('user.index');
@@ -109,6 +111,7 @@ class UserController extends Controller
         User::FindOrFail($id)->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'username' => $request->input('username'),
             'role' => $request->input('role'),
             'updated_at' => Carbon::now(),
         ]);

@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Edit Users</h4>
+                    {{-- <h4 class="mb-sm-0">Edit Users</h4> --}}
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -35,7 +35,7 @@
                                                 <option value="Admin" {{ ($editUserData->user_type
                                                     =="Admin"?"selected":"")}}>Admin</option>
                                                 <option value="User" {{ ($editUserData->user_type
-                                                    =="User"?"selected":"")}}>User</option>
+                                                    =="Operator"?"selected":"")}}>Operator</option>
                                             </select>
                                             <br>
                                             <span>
@@ -73,6 +73,18 @@
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
                                             </span>
+
+                                        </div>
+                                    </div>
+
+                                {{-- </div> --}}
+                                {{-- <div class="row"> --}}
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Username</label>
+                                            <input type="text" class="form-control" name="username"
+                                                value="{{ $editUserData->username }}">
+                                            <br>
 
                                         </div>
                                     </div>

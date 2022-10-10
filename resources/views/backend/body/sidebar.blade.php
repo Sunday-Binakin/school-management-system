@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 {{-- shows this tab if user role == admin --}}
-                @if(Auth::user()->role =='Admin') 
+                @if(Auth::user()->role =='Admin')
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         {{-- {{ ($prefix == '/user')?'active':'' }}"> --}}
@@ -34,7 +34,7 @@
                     </ul>
                 </li>
                 @endif
-{{--end of this condition {{-- shows this tab if user role == admin --}} 
+{{--end of this condition {{-- shows this tab if user role == admin --}}
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-profile-line"></i>
@@ -93,7 +93,18 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Student Management</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('student.registration.index') }}">Student Registration</a></li>
 
+                    </ul>
+
+
+                </li>
 
             </ul>
         </div>

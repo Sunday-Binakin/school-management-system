@@ -18,6 +18,7 @@ use App\Http\Controllers\backend\Setup\AssignSubjectController;
 use App\Http\Controllers\backend\setup\StudentSubjectController;
 use App\Http\Controllers\backend\setup\FeesCategoryAmountController;
 use App\Http\Controllers\backend\setup\StudentFeesCategoryController;
+use App\Http\Controllers\Student\StudentRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,6 +127,13 @@ Route::middleware('auth')->group(function () {
         // Route::get('/edit/{class_id}', 'edit')->name('setup.student.designation.edit');
         Route::post('/update/{id}', 'update')->name('setup.student.designation.update');
         Route::get('/destroy{id}', 'destroy')->name('setup.student.designation.destroy');
+    });
+
+
+    //student registration routes
+    Route::prefix('student/registration')->controller(StudentRegistrationController::class)->group(function () {
+        Route::get('/index', 'index')->name('student.registration.index');
+        Route::get('/create', 'create')->name('student.registration.create');
     });
 });
 Route::get('/dashboard', function () {

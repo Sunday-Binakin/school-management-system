@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label class="form-label">User Name</label>
+                                            <label class="form-label">Name</label>
                                             <input type="text" class="form-control" name="name">
                                         </div>
                                         <br>
@@ -55,13 +55,10 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </span>
-
                                     </div>
-
-
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">User Email</label>
                                             <input type="email" class="form-control" name="email">
@@ -74,20 +71,20 @@
 
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-6">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label class="form-label">User Password</label>
-                                            <input type="password" class="form-control" name="password">
+                                            <label class="form-label">Username</label>
+                                            <input type="username" class="form-control" name="username">
                                             <br>
                                             <span>
-                                                @error('password')
+                                                @error('username')
                                                 <div class="alert alert-danger">{{ $message }}
                                 </div>
                                 @enderror
                                 </span>
 
                             </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
 
