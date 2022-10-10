@@ -235,37 +235,27 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label class="form-label">Class<span class="text-danger">*</span></label>
-                                            <select class="form-select" name="class_id">
-                                                <option>Select Class</option>
-                                                @foreach ($classes as $class)
-                                                <option value="{{ $class->id }}">{{ $class->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <br>
-                                        <span>
-                                            @error('class_id')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
-                                        </span>
+                                                <label for="example-text-input" class="form-label">Profile Picture</label>
+                                                <div class="col-sm-12">
+                                                    <input class="form-control" id="image" name="cover_image" type="file">
+                                                    <br>
+                                                    @error('cover_image')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div> <!-- end row -->
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label class="form-label">Group<span class="text-danger">*</span></label>
-                                            <select class="form-select" name="group_id">
-                                                <option>Select Group</option>
-                                                @foreach ($groups as $group)
-                                                <option value="{{ $group->id }}">{{ $group->name }}</option>
-                                                @endforeach
-                                            </select>
+                                        <div class="row mb-3">
+                                            <label for="example-text-input" class="col-form-label"></label>
+
+                                            <div class="col-sm-12">
+                                                <img id="showImage" class="rounded avatar-lg"
+                                                    src="{{ url('uploads/no_image.jpg') }}" alt="Card image cap" style="width: 100px; height: 70px">
+                                            </div>
+                                            <br>
+
                                         </div>
-                                        <br>
-                                        <span>
-                                            @error('group_id')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
-                                        </span>
                                     </div>
                                 </div>
                             </div>
