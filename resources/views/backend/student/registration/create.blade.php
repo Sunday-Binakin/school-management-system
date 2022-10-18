@@ -24,7 +24,7 @@
                         <h4 class="card-title">Add Student</h4>
 
                         <hr>
-                        <form method="post" action="#">
+                        <form method="post" action="{{ route('student.registration.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="row">

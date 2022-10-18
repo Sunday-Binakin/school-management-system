@@ -134,6 +134,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('student/registration')->controller(StudentRegistrationController::class)->group(function () {
         Route::get('/index', 'index')->name('student.registration.index');
         Route::get('/create', 'create')->name('student.registration.create');
+        Route::post('/store', 'store')->name('student.registration.store');
     });
 });
 Route::get('/dashboard', function () {

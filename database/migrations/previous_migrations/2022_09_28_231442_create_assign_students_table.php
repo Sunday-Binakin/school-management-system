@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->integer('student_id')->Comment('user_id=student_id');
             $table->integer('class_id');
+            $table->integer('group_id')->nullable();
             $table->integer('year_id')->nullable();
             $table->integer('shift_id')->nullable();
             $table->timestamps();

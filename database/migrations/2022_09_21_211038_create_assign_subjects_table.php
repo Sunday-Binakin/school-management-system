@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('class_id');
             $table->integer('subject_id');
+            $table->integer('group_id');
             $table->double('full_mark');
             $table->double('pass_mark');
             $table->double('subjective_mark');
