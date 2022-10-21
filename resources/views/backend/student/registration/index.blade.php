@@ -79,9 +79,9 @@
                                                             Action</th>
                                                     </tr>
                                                 </thead>
-                                                {{-- <tbody>
+                                                <tbody>
 
-                                                    @foreach ($allUsers as $key=>$users )
+                                                    @foreach ($all_data as $key=>$users )
 
                                                     <tr>
                                                         <td class="sorting_1 dtr-control">{{ $key+1 }}</td>
@@ -109,7 +109,7 @@
 
                                                     @endforeach
 
-                                                </tbody> --}}
+                                                </tbody>
                                             </table>
                                         </div>
 

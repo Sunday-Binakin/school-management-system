@@ -26,7 +26,7 @@ class storeUserRequest extends FormRequest
         return [
             'role'=>'required',
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required|min:8'
         ];
     }
@@ -39,7 +39,7 @@ class storeUserRequest extends FormRequest
         return [
             'role.required'=> 'Select a role',
             'name.required'=>'Please Enter Your Name',
-            'name.unique'=> 'The name you entered already exist',
+            // 'name.unique'=> 'The name you entered already exist',
             'email.required'=>'Please Enter a valid Email',
             'email.email'=>'Something is wrong with your email',
             'password.required'=>'Please Enter Your Password',

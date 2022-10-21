@@ -20,4 +20,9 @@ class AssignSubject extends Model
     {
         return $this->BelongsTo(StudentSubject::class, 'subject_id', 'id');
     }
+    public function subject_group(): BelongsTo
+    {
+        return $this->BelongsTo(SubjectGroup::class, 'group_id', 'id');
+    }
+   
 }
