@@ -23,6 +23,11 @@ class StudentRegistrationController extends Controller
     public function index()
     {
         //all data
+        $data['years'] = StudentYear::all();
+        $data['classes'] = StudentClass::all();
+        $data['year_id'] = StudentYear::orderBy('id', 'desc')->first()->id;
+        $data['class_id'] = StudentClass::orderBy('id', 'desc')->first()->id;
+        dd($data['class_id']);
         $data['all_data'] = AssignStudent::all();
         // return view('backend.student.student_reg.view_student',$data);
         return view('backend.student.registration.index', $data);
@@ -39,6 +44,7 @@ class StudentRegistrationController extends Controller
         $data['classes'] = StudentClass::all();
         $data['groups'] = StudentGroup::all();
         $data['shifts'] = StudentShift::all();
+
         return view('backend.student.registration.create', $data);
     }
 
