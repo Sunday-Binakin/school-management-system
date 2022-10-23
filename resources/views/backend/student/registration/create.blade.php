@@ -3,7 +3,7 @@
 <div class="page-content">
     <div class="container-fluid">
 
-     
+
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -168,7 +168,8 @@
                                             <select class="form-select" name="year_id">
                                                 <option>Select Year</option>
                                                 @foreach ($years as $year)
-                                                <option value="{{ $year->id }}">{{ $year->name }}</option>
+                                                <option value="{{ $year->id }} {{ (@isset($year_id ==$year->id))?'selected':'' }}"
+                                                    @endisset) }}">{{ $year->name }}</option>
 
                                                 @endforeach
 
@@ -189,7 +190,9 @@
                                             <select class="form-select" name="class_id">
                                                 <option>Select Class</option>
                                                 @foreach ($classes as $class)
-                                                <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                                <option
+                                                    value="{{ $class->id }} {{ (@isset($class_id ==$class->id))?'selected':'' }}"
+                                                    @endisset) }}">{{ $class->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

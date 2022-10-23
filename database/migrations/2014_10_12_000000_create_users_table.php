@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_type')->nullable()->comment('Student,Employee,Admin');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('username')->nullable()->unique();
@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('role')->nullable()->comment('admin=head of software,operator=computer, user=employee');
             $table->date('join_date')->nullable();
             $table->integer('designation_id')->nullable();
-            $table->double('salary')->nullable(); 
+            $table->double('salary')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
