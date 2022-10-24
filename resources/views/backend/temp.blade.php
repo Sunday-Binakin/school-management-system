@@ -365,3 +365,69 @@ info@codewebltd.com
 $2y$10$hYy1E3TIwehRIOTAVrq6A.dWOFf0Oew2Yq5s9P53u10HUN4c0YUi2
 AAA
 e7990f04
+
+
+ {{-- begin search --}}
+ <div class="row">
+    <div class="col-12">
+        <div class="card border border-primary">
+            <div class="card-header bg-transparent border-primary">
+                <h5 class="my-0 text-primary"><i class="mdi mdi-find me-3"></i>Filter Search</h5>
+            </div>
+            <div class="card-body">
+
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Year<span class="text-danger"></span></label>
+                                <select class="form-select" name="year_id">
+                                    <option>Select Year</option>
+                                    @foreach ($years as $year)
+                                    <option value="{{ $year->id }}">{{ $year->name }}</option>
+
+                                    @endforeach
+
+
+                                </select>
+                                <br>
+                                <span>
+                                    @error('year_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Class<span class="text-danger"></span></label>
+                                <select class="form-select" name="class_id">
+                                    <option>Select Class</option>
+                                    @foreach ($classes as $class)
+                                    <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <br>
+                            <span>
+                                @error('class_id')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3" style="padding-top: 25px">
+                                <button type="button"
+                                    class="btn btn-primary btn-rounded waves-effect waves-light"
+                                    style="width: 100px">Search</button>
+                            </div>
+                        </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{{-- end search --}}

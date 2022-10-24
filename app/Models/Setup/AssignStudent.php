@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class AssignStudent extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public function student(): belongsTo
     {

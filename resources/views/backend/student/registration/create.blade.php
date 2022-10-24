@@ -168,9 +168,10 @@
                                             <select class="form-select" name="year_id">
                                                 <option>Select Year</option>
                                                 @foreach ($years as $year)
-                                                <option value="{{ $year->id }} {{ (@isset($year_id ==$year->id))?'selected':'' }}"
-                                                    @endisset) }}">{{ $year->name }}</option>
-
+                                                <option value="{{ $year->id }}
+                                                {{-- {{ (@isset($year_id ==$year->id))?'selected':'' }}"
+                                                @endisset) }} --}}
+                                                ">{{ $year->name }} </option>
                                                 @endforeach
 
 
@@ -191,8 +192,10 @@
                                                 <option>Select Class</option>
                                                 @foreach ($classes as $class)
                                                 <option
-                                                    value="{{ $class->id }} {{ (@isset($class_id ==$class->id))?'selected':'' }}"
-                                                    @endisset) }}">{{ $class->name }}</option>
+                                                    value="{{ $class->id }}
+                                                    {{-- {{ (@isset($class_id ==$class->id))?'selected':'' }}"
+                                                    @endisset) }} --}}
+                                                    ">{{ $class->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
