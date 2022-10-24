@@ -29,6 +29,7 @@ class StudentRegistrationController extends Controller
         $data['class_id'] = StudentClass::orderBy('id', 'desc')->first()->id;
         // dd($data['class_id']);
         $data['all_data'] = AssignStudent::where('year_id', $data['year_id'])->where('class_id', $data['class_id'])->get();
+        // $data['all_data'] = AssignStudent::all();
         // return view('backend.student.student_reg.view_student',$data);
         return view('backend.student.registration.index', $data);
     }
