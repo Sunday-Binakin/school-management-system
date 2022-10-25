@@ -99,7 +99,8 @@
 
                             <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                 <a class="btn btn-primary btn-rounded waves-effect waves-light"
-                                    style="float: right; width:210px" href="{{ route('student.registration.create') }}" ><i
+                                    style="float: right; width:210px"
+                                    href="{{ route('student.registration.create') }}"><i
                                         class="glyphicon glyphicon-plus ">
                                         Add Student</i></a>
                                 <br>
@@ -125,13 +126,18 @@
                                                 @foreach ($all_data as $key => $value)
                                                 <tr>
                                                     <td>{{ $key+1 }}</td>
+                                                    {{-- <td>it works</td>
+                                                    <td>it works</td>
+                                                    <td>it works</td>
+                                                    <td>it works</td>
+                                                    <td>it works</td> --}}
                                                     <td>{{ $value['student']['name'] }}</td>
                                                     <td>{{ $value->username }}</td>
                                                     <td>{{ $value['student']['id_no'] }}</td>
                                                     <td>{{ $value['student']['role'] }}</td>
                                                     <td>{{ $value['student_year']['name'] }}</td>
                                                     <td>{{ $value['student_class']['name'] }}</td>
-                                                    <td>{{ $value['student']['code'] }}</td>
+                                                    <td>{{ $value['student']['code'] }}</td> 
                                                     <td>
                                                         <img src="{{ (!empty($value['student']['image'])) ? url('upload/student_images/' . $value['student']['image']) : url('upload/no_image.jpg') }}"
                                                             alt="Student Image"
@@ -139,9 +145,11 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group me-2 mb-2 mb-sm-0">
-                                                            <a href="#" {{-- data-bs-toggle="modal" --}} {{--
+                                                            <a href="#"
+                                                             {{-- data-bs-toggle="modal" --}} {{--
                                                                 data-bs-target="#editStudentFeesCategoryAmountModal{{ $amount->fee_category_id }}"
-                                                                --}} class="btn btn-primary waves-light waves-effect"
+                                                                --}}
+                                                                class="btn btn-primary waves-light waves-effect"
                                                                 style="width: 70px"><i class="ri-edit-box-line"></i></a>
 
                                                             <a href="#"

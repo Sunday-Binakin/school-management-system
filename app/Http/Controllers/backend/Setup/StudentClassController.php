@@ -20,7 +20,7 @@ class StudentClassController extends Controller
         //
         $all_classes = StudentClass::all();
         // $edit_student_class = StudentClass::FindOrFail($id);
-
+dd($all_classes);
         return view('backend.setup.student.class.index', compact('all_classes'));
     }
 
@@ -105,7 +105,7 @@ class StudentClassController extends Controller
     public function destroy($id)
     {
         StudentClass::FindOrFail($id)->delete();
-        
+
         return redirect()->route('setup.student.class.index');
     }
 }
