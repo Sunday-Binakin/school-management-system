@@ -11,9 +11,9 @@ class FeesCategoryAmount extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function fee_category():BelongsTo
+    public function fee_category(): BelongsTo
     {
-        return $this->BelongsTo(StudentFeesCategory::class , 'fee_category_id', 'id');
+        return $this->BelongsTo(StudentFeesCategory::class, 'fee_category_id', 'id');
     }
     public function student_class(): BelongsTo
     {

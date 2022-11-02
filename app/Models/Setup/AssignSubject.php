@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Models\Setup;
 
+namespace App;
+namespace App\Models\Setup;
+namespace App\Models\Setup\Student;
+use App\Models\Setup\StudentClass;
 use App\Models\setup\StudentSubject;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AssignSubject extends Model
 {
@@ -24,5 +27,5 @@ class AssignSubject extends Model
     {
         return $this->BelongsTo(SubjectGroup::class, 'group_id', 'id');
     }
-   
+
 }

@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Student;
-
+// namespace App\Http\Controllers\Student;
+// use App\Models\Setup\Student;
+// use Student;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Setup\Student;
+use Illuminate\Http\Response;
 use App\Models\setup\StudentYear;
 use App\Models\Setup\StudentClass;
 use App\Models\Setup\StudentGroup;
@@ -30,14 +34,14 @@ class StudentRegistrationController extends Controller
         // dd($data['class_id']);
         $data['all_data'] = AssignStudent::where('year_id', $data['year_id'])->where('class_id', $data['class_id'])->get();
         // $data['all_data'] = AssignStudent::all();
-        dd($data['all_data']);
+        // dd($data['all_data']);
         return view('backend.student.registration.index', $data);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {

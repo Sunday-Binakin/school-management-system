@@ -20,7 +20,7 @@ class StudentClassController extends Controller
         //
         $all_classes = StudentClass::all();
         // $edit_student_class = StudentClass::FindOrFail($id);
-dd($all_classes);
+// dd($all_classes);
         return view('backend.setup.student.class.index', compact('all_classes'));
     }
 
